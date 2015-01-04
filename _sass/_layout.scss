@@ -4,6 +4,7 @@
 .site-header {
     border-bottom: solid 1px $site-title-color;
     padding: 3em 0;
+    background: #fff;
     position: relative;
     @include media-query($on-palm) {
         padding: 2em 0;
