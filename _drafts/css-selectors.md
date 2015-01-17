@@ -2,63 +2,79 @@
 
 #### Type selector
 
-{% highlight css %}
+```css
 body {
     margin: 0;
 }
-{% endhighlight %}
+```
 
 #### Class selector
 
-{% highlight css %}
+```css
 .menu-item {
     display: inline-block;
 }
-{% endhighlight %}
+```
 
-{% highlight html %}
+```html
 <ul>
     <li class="menu-item">Item 1</li>
     <li class="menu-item">Item 2</li>
     <li class="menu-item">Item 3</li>
 </ul>
-{% endhighlight %}
+```
 
 #### ID selector
 
-{% highlight css %}
+```
 #my-element {
     color: green;
 }
-{% endhighlight %}
+```
 
 Applies to the markup like this:
 
-{% highlight html %}
+```html
 <body>
     <span id="my-element">This text will be green</span>
 </body>
-{% endhighlight %}
+```
 
 ### Pseudo-classes selectors
 
-:link
-:visited
-:active
-:hover
-:focus
-:first-child
-:last-child
-:nth-child
-:nth-last-child
-:nth-of-type
-:first-of-type
-:last-of-type
-:empty
-:target
-:checked
-:enabled
-:disabled
+- `:hover`
+
+#### Links
+
+- `:link`
+- `:visited`
+
+#### Forms and/or links
+
+- `:active`
+- `:focus`
+- `:checked`
+- `:enabled`
+- `:disabled`
+
+#### Positional selectors
+
+*Position is strict*
+
+- `:first-child`
+- `:first-of-type`
+- `:last-child`
+- `:last-of-type`
+
+*Position is set by parameter*
+
+- `:nth-child`
+- `:nth-last-child`
+- `:nth-of-type`
+
+#### Other types
+
+- `:empty`
+- `:target`
 
 ### Relational selectors
-
