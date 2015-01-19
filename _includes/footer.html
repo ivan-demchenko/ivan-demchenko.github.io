@@ -37,6 +37,15 @@
         </a>
       </li>
       {% endif %}
+
+      {% if site.delicious_username %}
+      <li>
+        <a href="https://delicious.com/{{ site.delicious_username }}">
+          <span class="username">{{ site.delicious_username }}</span>
+        </a>
+      </li>
+      {% endif %}
+
     </ul>
 
     {% if site.description %}

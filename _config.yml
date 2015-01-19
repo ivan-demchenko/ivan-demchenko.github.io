@@ -6,6 +6,7 @@ baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://raqystyle.github.com" # the base hostname & protocol for your site
 twitter_username: raqystyle
 github_username:  raqystyle
+delicious_username: raqystyle
 
 # Build settings
 markdown: redcarpet

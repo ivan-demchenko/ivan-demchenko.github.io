@@ -3,11 +3,11 @@
  */
 .site-header {
     border-bottom: solid 1px $site-title-color;
-    padding: 3em 0;
+    padding: 3rem 0;
     background: #fff;
     position: relative;
     @include media-query($on-palm) {
-        padding: 2em 0;
+        padding: 2rem 0;
         .wrapper {
             text-align: center;
             .site-title {
@@ -22,7 +22,7 @@
 }
 
 #photo {
-    border-radius: 15px;
+    border-radius: 0.7rem;
     float: left;
     margin-right: 2rem;
     max-width: $photo-width;
@@ -54,7 +54,7 @@ a.site-title {
 
         // Gaps between nav items, but not on the first one
         &:not(:first-child) {
-            margin-left: 20px;
+            margin-left: $spacing-unit;
         }
     }
 
@@ -166,7 +166,11 @@ a.site-title {
 /**
  * Page content
  */
-.page-content {}
+.page-content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 $spacing-unit;
+}
 
 .page-heading {
     font-size: 20px;
@@ -208,5 +212,7 @@ a.site-title {
     letter-spacing: -2px;
 }
 
-.post-content {
+.post-footer {
+    position: relative;
+    border-top: solid 1px #ccc;
 }

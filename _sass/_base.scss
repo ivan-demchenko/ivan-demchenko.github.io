@@ -137,10 +137,10 @@ pre {
     @extend %clearfix;
     max-width: 960px;
     margin: 0 auto;
-    padding: 0 3em;
+    padding: 0 $spacing-unit;
 
     @include media-query($on-palm) {
-        padding: 0 1em;
+        padding: 0 $spacing-unit / 2;
     }
 }
 
