@@ -2,7 +2,7 @@
 layout:     post
 title:      "How to build components with AngularJS"
 author:     Ivan Demchenko
-date:       2014-01-28 21:57:27
+date:       2015-01-28 21:57:27
 categories: AngularJS components directives
 keywords:   "JavaScript, AngularJS, components, directives"
 desc:       "In this article I want to start my story of building components with AngularJS"
