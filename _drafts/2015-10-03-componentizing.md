@@ -2,9 +2,9 @@ Everybody talk about components now. WebComponents have almost become a standard
 
 ### Why to componentize or eliminate entropy
 
-Let's think about a component in general. From my point of view, a component is a self-contained piece of software. What does it do and how is a second question. In other words, components are encapsulations or building blocks. Thus, we split and reuse parts of our system as building blocks.
+Let's think about a component in general. From my point of view, a component is a self-contained piece of software. For us, as users, the only important thing is that when give some input, a component does something. In other words, components are encapsulations or building blocks. Thus, we split and reuse parts of our system as building blocks. The same idea as OOP or FP cenveys.
 
-A good example are such frameworks as Bootstrap or Foundation. They are just sets of reusable components that encapsulate some functionality. It might be just a button or something more sophisticated. But the important thing is that we don't care about this. For us, this is just another Lego cube.
+Good examples are such frameworks as Bootstrap or Foundation. They are just sets of reusable components that encapsulate some functionality. It might be just a button or something more sophisticated. But the important thing is that we don't care about this. For us, this is just another "building block".
 
 Every kind of system with a certain level of entropy tends to order. For example, recently I found this piece of markup:
 
@@ -12,9 +12,9 @@ Every kind of system with a certain level of entropy tends to order. For example
 <div class="text-2em text-red m-l-05em float-right top-2em bottom-3em scrollable"></div>
 ```
 
-This is almost one-to-one with the original. What can we say about the codebase written in this manner? I can only say one thing: it has a high level of entropy. In other words, there is no order, no standard which would help a developer to choose a class to use. What does this set of classes tels us? Well, maybe it will give us some hint about color of text or positioning. But it has no meaning. So, how do you want to support meaningless code?
+This is almost one-to-one with the original. What can we say about the codebase written in this manner? Well, only one thing: it has a high level of entropy. In other words, there is no order, no standard which would help a developer to choose a class to use. What does this set of classes tells us? Well, maybe it will give us some hint about color of text or positioning. But it has no meaning. A lot of things may be positioned and gived text color. Meaningless code is unsupportable code.
 
-Another tremendous advantage is that whenever you encounter a bug in a component, you can fix it in one place and it will be fixed everywhere in the app.
+Talking about support, whenever you encounter a bug in a component, you can fix it in one place and it will be fixed everywhere in the app. This encourages consistency.
 
 ### How does AngularJS help
 
