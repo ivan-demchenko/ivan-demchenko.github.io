@@ -1,4 +1,15 @@
-Everybody talk about components now. WebComponents are gaining momentum, JS frameworks adopts the ideas of componentization. But is it something really new? Let's find out.
+---
+layout:     post
+title:      "Reducing entropy with componentisation"
+author:     Ivan Demchenko
+date:       2015-10-02 16:40
+categories: architecture
+keywords:   "angularjs, css, stylus, architecture, complexity"
+desc:       "In this note I would like to share my story of dealing with complex UI problems using ideas of componentisation"
+permalink:  componentisation-using-angularjs-and-stylus
+---
+
+Everybody talk about components now. WebComponents are gaining momentum, JS frameworks adopts the ideas of componentisation. But is it something really new? Let's find out.
 
 ### Entropy and components
 
@@ -24,7 +35,7 @@ One of the projects I used to work on was based on AngularJS, so I'll be referin
 
 #### Directives
 
-However, AngularJS implements a number of patterns that help to organise the codebase. But the most helpful feature in terms of *componentization* is the ability to create our own *directives*. They are cool not just because we can "extend HTML", but also because using directives we can encapsulate huge pieces functionality that normally just makes it hard to understand business logic. I talking about UI logic. For example, very often, just in order to get a quick result, people put everythin in a controller.
+However, AngularJS implements a number of patterns that help to organise the codebase. But the most helpful feature in terms of *componentisation* is the ability to create our own *directives*. They are cool not just because we can "extend HTML", but also because using directives we can encapsulate huge pieces functionality that normally just makes it hard to understand business logic. I talking about UI logic. For example, very often, just in order to get a quick result, people put everythin in a controller.
 
 Let's consider a situation when we need to send some data to backend when a user clicks a button. We want to disable the button and show loading indicator next to label while we are waiting for the response. So we encapsulated the button in a directive and called it `action-button`. It takes promise and validation function that returns boolean upon which we decide whether the button should be disabled or enabled. It seems like an effort won't pay off. But it will. Because we removed noise from all our templates and controllers.
 
