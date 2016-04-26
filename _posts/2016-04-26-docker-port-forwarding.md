@@ -11,6 +11,8 @@ permalink:  docker-port-forwarding
 
 Sometimes you need to debug a mobile version of an app you're working on that runs in docker virtual machine. Thus, you need a port forwarding. In this article I'd love to share a few simple steps of how to do this on OSX.
 
+### Set-up
+
 This should work for docker-machine using VirtualBox on OSX.
 
 1. `docker-machine ssh default`
