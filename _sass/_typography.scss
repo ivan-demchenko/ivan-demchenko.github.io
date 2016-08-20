@@ -58,70 +58,66 @@ $m_h4-margin-top: 1 * $m_h4-line;
 $m_h4-margin-bottom: 1 * $m_h4-line;
 
 h1, h2, h3, h4, .site-header, .site-footer {
-    font-family: $special-font-family;
+  font-family: $special-font-family;
 }
 
 h1 {
+  font-size: $m_h1-font-size;
+  line-height: $m_h1-line-height;
+  margin-top: $m_h1-margin-top;
+  margin-bottom: $m_h1-margin-bottom;
+
+  @include whenMoreThan($on-palm) {
     font-size: $h1-font-size;
     line-height: $h1-line-height;
     margin-top: $h1-margin-top;
     margin-bottom: $h1-margin-bottom;
-    @include media-query($on-palm) {
-        font-size: $m_h1-font-size;
-        line-height: $m_h1-line-height;
-        margin-top: $m_h1-margin-top;
-        margin-bottom: $m_h1-margin-bottom;
-    }
+  }
 }
 
 h2 {
+  font-size: $m_h2-font-size;
+  line-height: $m_h2-line-height;
+  margin-top: $m_h2-margin-top;
+  margin-bottom: $m_h2-margin-bottom;
+
+  @include whenMoreThan($on-palm) {
     font-size: $h2-font-size;
     line-height: $h2-line-height;
     margin-top: $h2-margin-top;
     margin-bottom: $h2-margin-bottom;
-    @include media-query($on-palm) {
-        font-size: $m_h2-font-size;
-        line-height: $m_h2-line-height;
-        margin-top: $m_h2-margin-top;
-        margin-bottom: $m_h2-margin-bottom;
-    }
-}
-
-.post-list h2 {
-    font-size: $h2-line-height * 0.5;
-    line-height: normal;
-    @include media-query($on-palm) {
-        font-size: $m_h2-font-size;
-    }
+  }
 }
 
 h3 {
+  font-size: $m_h3-font-size;
+  line-height: $m_h3-line-height;
+  margin-top: $m_h3-margin-top;
+  margin-bottom: $m_h3-margin-bottom;
+
+  @include whenMoreThan($on-palm) {
     font-size: $h3-font-size;
     line-height: $h3-line-height;
     margin-top: $h3-margin-top;
     margin-bottom: $h3-margin-bottom;
-    @include media-query($on-palm) {
-        font-size: $m_h3-font-size;
-        line-height: $m_h3-line-height;
-        margin-top: $m_h3-margin-top;
-        margin-bottom: $m_h3-margin-bottom;
-    }
+  }
 }
 
 h4 {
+  font-size: $m_h4-font-size;
+  line-height: $m_h4-line-height;
+  margin-top: $m_h4-margin-top;
+  margin-bottom: $m_h4-margin-bottom;
+
+  @include whenMoreThan($on-palm) {
     font-size: $h4-font-size;
     line-height: $h4-line-height;
     margin-top: $h4-margin-top;
     margin-bottom: $h4-margin-bottom;
-    @include media-query($on-palm) {
-        font-size: $m_h4-font-size;
-        line-height: $m_h4-line-height;
-        margin-top: $m_h4-margin-top;
-        margin-bottom: $m_h4-margin-bottom;
-    }
+  }
 }
 
 p, ul, ol, pre, table, blockquote {
-    margin-top: 1.6875rem;
-    margin-bottom: 1.6875rem;
+  margin-top: 1.6875rem;
+  margin-bottom: 1.6875rem;
 }

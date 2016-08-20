@@ -1,15 +1,18 @@
 # Site settings
 title: Ivan Demchenko's blog
 email: raqy.style@gmail.com
-#description: > # I am a front-end developer and big fan of JavaScript and AngularJS
+description: This is a personal blog of Ivan Demchenko
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://raqystyle.github.com" # the base hostname & protocol for your site
 twitter_username: raqystyle
 github_username:  raqystyle
-delicious_username: raqystyle
 
 # Build settings
-markdown: redcarpet
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
+markdown: kramdown
 permalink: :title
+
+host: 0.0.0.0
+port: 5000
+
+gems:
+  - octopress-autoprefixer

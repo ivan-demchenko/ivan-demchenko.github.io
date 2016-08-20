@@ -2,3 +2,4 @@ _site
 .sass-cache
 *.lock
 .c9
+.DS_Store

@@ -1,178 +1,160 @@
 /**
- * Reset some basic elements
- */
-body, h1, h2, h3, h4, h5, h6,
-p, blockquote, pre, hr,
-dl, dd, ol, ul, figure {
-    margin: 0;
-    padding: 0;
-}
+* Reset some basic elements
+*/
 
 
 /**
- * Basic styling
- */
+* Basic styling
+*/
 body {
-    font-family: $base-font-family;
-    font-size: $base-font-size;
-    line-height: $base-line-height;
-    color: $text-color;
-    background-color: $background-color;
-    -webkit-text-size-adjust: 100%;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  color: $text-color;
+  background-color: $background-color;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 
 /**
- * Images
- */
+* Images
+*/
 img {
-    max-width: 100%;
-    vertical-align: middle;
+  max-width: 100%;
+  vertical-align: middle;
 }
 
 
 /**
- * Figures
- */
+* Figures
+*/
 figure > img {
-    display: block;
+  display: block;
 }
 
 figcaption {
-    font-size: $small-font-size;
+  font-size: $small-font-size;
 }
 
 
 /**
- * Lists
- */
+* Lists
+*/
 ul, ol {
-    margin-left: $spacing-unit;
+  margin-left: $spacing-unit;
 }
 
 li {
-    > ul,
-    > ol {
-         margin-bottom: 0;
-    }
+  > ul,
+  > ol {
+    margin-bottom: 0;
+  }
 }
 
 
 /**
- * Headings
- */
+* Headings
+*/
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 300;
+  font-weight: 500;
 }
 
 
 /**
- * Links
- */
+* Links
+*/
 a {
-    color: $normal-links-color;
-    text-decoration: none;
+  color: $normal-links-color;
+  text-decoration: none;
 
-    &:visited {
-        color: $visited-links-color;
-    }
+  &:visited {
+    color: $visited-links-color;
+  }
 
-    &:hover {
-        color: $hover-links-color;
-        text-decoration: underline;
-    }
+  &:hover {
+    color: $hover-links-color;
+    text-decoration: underline;
+  }
 }
 
 
 
 /**
- * Blockquotes
- */
+* Blockquotes
+*/
 blockquote {
-    color: $grey-color-dark;
-    border-left: 4px solid $grey-color-light;
-    padding-left: $spacing-unit / 2;
-    font-size: 1.3rem;
-    font-family: serif;
-    font-style: italic;
+  color: $grey-color-dark;
+  border-left: 4px solid $grey-color-light;
+  padding-left: $spacing-unit;
+  font-size: 1.3rem;
+  font-family: serif;
+  font-style: italic;
 
-    > :last-child {
-        margin-bottom: 0;
-    }
+  > :last-child {
+    margin-bottom: 0;
+  }
 }
 
 
 /**
- * Code formatting
- */
-pre,
+* Code formatting
+*/
 code {
-    background-color: $grey-color-light;
-    font-size: 1rem;
-    border: 1px solid $grey-color-dark;
-    border-radius: 3px;
-}
-
-code {
-    padding: 1px 5px;
+  background-color: $grey-color-light;
+  border: solid 1px #eae9e5;
+  padding: 2px 3px;
+  font-size: 1.1rem;
 }
 
 pre {
-    padding: 8px 12px;
-    overflow-x: scroll;
+  background-color: $grey-color-light;
+  font-size: 1rem;
+  padding: $spacing-unit 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 
-    > code {
-        border: 0;
-        padding-right: 0;
-        padding-left: 0;
-    }
-}
-
-
-
-/**
- * Wrapper
- */
-.wrapper {
-    @extend %clearfix;
-    max-width: 960px;
+  & > code {
+    font-size: 1rem;
+    max-width: $content-width;
     margin: 0 auto;
     padding: 0 $spacing-unit;
-
-    @include media-query($on-palm) {
-        padding: 0 $spacing-unit / 2;
-    }
+    display: block;
+    border: none;
+  }
 }
 
 
-
 /**
- * Clearfix
- */
-%clearfix {
+* Wrapper
+*/
+.wrapper {
+  display: flex;
+  padding: 0 $spacing-unit;
 
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+  @include whenMoreThan($on-palm) {
+    max-width: $content-width;
+    margin: 0 auto;
+    padding: 0 $spacing-unit;
+  }
 }
 
-
-
 /**
- * Icons
- */
+* Icons
+*/
 .icon {
 
-    > svg {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        vertical-align: middle;
+  > svg {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
 
-        path {
-            fill: $grey-color;
-        }
+    path {
+      fill: $grey-color;
     }
+  }
 }

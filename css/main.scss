@@ -3,14 +3,34 @@
 ---
 @charset "utf-8";
 
+// Using media queries with like this:
+// @include whenMoreThan($palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit;
+//         padding-left: $spacing-unit;
+//     }
+// }
+@mixin whenMoreThan($device) {
+  @media screen and (min-width: $device) {
+    @content;
+  }
+}
+
+$on-palm:            39.9375em;
+$on-tablet:          48rem;
+$on-laptop:          64rem;
+
 // Our variables
-$base-font-family:   "Open sans", Helvetica, Arial, sans-serif;
-$special-font-family:"Quicksand", Helvetica, Arial, sans-serif;
+$base-font-family:   -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$special-font-family:$base-font-family;
 $base-font-size:     1rem;
-$base-line-height:   1.6875rem;
+$base-line-height:   1.625rem;
 $small-font-size:    $base-font-size * 0.875;
 
-$spacing-unit:       2rem;
+$spacing-unit:       (1.625rem / 2);
+@include whenMoreThan($on-palm) {
+  $spacing-unit:      1.625rem;
+}
 
 $text-color:         #22313F;
 $background-color:   #F8F8F8;
@@ -25,32 +45,16 @@ $grey-color:         #BFBFBF; // SILVER SAND
 $grey-color-light:   #F2F1EF; // CARARRA
 $grey-color-dark:    #6C7A89; // LYNCH
 
+$content-width:      670px;
+
 $photo-width:        4rem;
 $photo-height:       4rem;
 
-$on-palm:            41.6rem;
-$on-tablet:          48rem;
-$on-laptop:          64rem;
-
-
-
-// Using media queries with like this:
-// @include media-query($palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
-}
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-        "base",
-        "layout",
-        "typography",
-        "syntax-highlighting"
+"base",
+"layout",
+"typography",
+"syntax-highlighting"
 ;
