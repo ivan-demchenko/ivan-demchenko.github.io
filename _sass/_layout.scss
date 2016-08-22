@@ -152,11 +152,20 @@ a.site-title {
 }
 
 .post-content {
-  > p, h1, h2, h3, h4, h5, h6 {
+  > p, ul, ol, h1, h2, h3, h4, h5, h6 {
     max-width: $content-width;
     margin-left: auto;
     margin-right: auto;
     padding: 0 $spacing-unit;
+  }
+  > ul {
+    li {
+      &:before {
+        content: ' - ';
+        display: inline-block;
+        padding-right: $spacing-unit;
+      }
+    }
   }
 }
 

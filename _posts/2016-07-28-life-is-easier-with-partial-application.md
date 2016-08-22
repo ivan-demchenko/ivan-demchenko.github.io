@@ -48,7 +48,7 @@ What I'm trying to say is that we can fix the values of the arguments, so to spe
 
 So now `helloFn` is a function with type `string -> string`
 
-Arbitrary number of arguments
+### Arbitrary number of arguments
 
 Very often it happens that functions take arbitrary number of arguments. For instance, `path.join` from NodeJS can take N arguments. So, how can we partially apply such function? Easy! Ramda has an answer which is called `curryN`. As an example, let's assume that we need a function that will join three strings as a path:
 
@@ -88,9 +88,74 @@ fromHome('..', '/my-dir/');
 
 Not only this technique saves you from annoying `function() {...}` but also allows you to give better names to the new function.
 
-#### Bonus
+### "Native" partial application.
 
-I can not avoid mentioning Promises. The library [Q](https://www.npmjs.com/package/q) has an interesting method named `nfcall`
+In JavaScript you can partially apply a function using higher order functions or `Function.prototype.bind()`.
+
+Let's assume, you have such data:
+
+```js
+var data = [
+  {i: 1, b: 12},
+  {i: 2, b: 34},
+  {i: 3, b: 29},
+  {i: 4, b: 53},
+  {i: 5, b: 95},
+  {i: 6, b: 15}
+]
+```
+
+and you need to filter out the records with `b < 20`. Let's create a predicate:
+
+```js
+function lessThan(limit, record) {
+  return record.b < limit;
+}
+```
+
+Thus, using `bind` method, not only can we specify the context of the function but also "fix" certain arguments:
+
+```js
+data.filter(lessThan.bind(null, 20));
+// [{b: 12, i: 1}, {b: 15, i: 6}]
+```
+
+Another way is to refactor our predicate and use the benefits of static binding of JavaScript:
+
+```js
+function lessThan(limit) {
+  return function(record) {
+    return record.b < limit;
+  };
+}
+```
+
+and now our predicate returns a function which `filter` wants to use:
+
+```js
+data.filter(lessThan(20));
+// [{b: 12, i: 1}, {b: 15, i: 6}]
+```
+
+However, from my point of view, both of these methods are not very practical.
+
+### Arguments order
+
+Also, note the importance of the order of the arguments on `lessThan` function. Here is another example. We want to set the content of the a certain DOM element by click:
+
+```js
+var setContent = R.curry(function(domEl, clickEvent) {
+  domEl.innerHTML = clickEvent.target.innerHTML;
+});
+
+domEl.addEventListener('click', setContent($('#another-div')));
+```
+
+It is quite easy not to notice how important it is that MouseEvent argument comes last. After partial application of the `setContent` function you get another function that is waiting for the MouseEvent.
+
+### Bonus
+
+I cannot avoid mentioning Promises. The library [Q](https://www.npmjs.com/package/q) has an interesting method named `nfcall`
 
 ```js
 ///  Q.nfcall :: (a -> ... -> *) -> a -> a -> Promise a
@@ -122,3 +187,10 @@ readBunchOfFiles(['a.txt', 'b.txt', 'c.txt']);
 ```
 
 How good would it be if any function was curried by default in JS!
+
+### Related articles
+
+  * [ECMA-262-5 in detail. Chapter 3.1. Lexical environments: Common Theory.](http://dmitrysoshnikov.com/ecmascript/es5-chapter-3-1-lexical-environments-common-theory/)
+  * [MDN: Function.prototype.bind()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
+  * [Currying](https://en.wikipedia.org/wiki/Currying)
+  * [Partial application](https://en.wikipedia.org/wiki/Partial_application)

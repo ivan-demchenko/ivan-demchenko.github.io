@@ -46,6 +46,9 @@ figcaption {
 */
 ul, ol {
   margin-left: $spacing-unit;
+  li {
+    list-style: none;
+  }
 }
 
 li {
