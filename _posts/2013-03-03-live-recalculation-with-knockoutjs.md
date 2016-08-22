@@ -7,9 +7,9 @@ categories: knockoutjs
 keywords:   "knockoutjs, live, recalculations"
 desc:       "How to make KnockoutJS to update values after recalculation of model in live"
 ---
-I really love that framework. And here is very small sample of code for beginners. How to make my app recalculate values of form automatically in live? It is very easy!
+I really love this framework. And here I want to present a very small sample of code for beginners. How to make my app recalculate values of form automatically in live? It is very easy with KnockoutJS!
 
-Here is our hypothetical Model (JS):
+Here is our hypothetical Model:
 
 ```js
 function MyModel (data) {
@@ -26,7 +26,7 @@ function MyModel (data) {
 };
 ```
 
-And this is our View (HTML):
+And this is our View:
 
 ```html
 <form>

@@ -52,7 +52,7 @@ a.site-title {
 */
 .site-footer {
   background: #446CB3;
-  padding: $spacing-unit 0;
+  padding: ($spacing-unit * 2) 0;
   color: #fff;
 
   .wrapper {
@@ -129,6 +129,7 @@ a.site-title {
 .post-meta {
   font-size: $small-font-size;
   color: $grey-color;
+  font-weight: 100;
 }
 
 .post-link {
