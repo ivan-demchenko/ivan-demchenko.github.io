@@ -98,7 +98,7 @@ function alwaysLine(i, line, block) {
 
 Thus you have structure like
 
-```
+```text
 files
     blocks
         name
@@ -114,6 +114,7 @@ In template we can use the blocks we specified:
 - markup
 
 ```
+{% raw %}
 {{#if markup}}
     <div class="ys-sg-def-example">
         <p class="ys-sg-def-example-marker">Example</p>
@@ -121,7 +122,7 @@ In template we can use the blocks we specified:
             {{{markup.example}}}
         </div>
     </div>
-    
+
     {{#if state}}
     <dic class="ys-sg-def-stateslist">
         {{#state}}
@@ -132,16 +133,17 @@ In template we can use the blocks we specified:
         {{/state}}
     </dic>
     {{/if}}
-    
+
     <div class="ys-sg-def-code">
         <pre class="prettyprint lang-html markup">{{{markup.escaped}}}</pre>
     </div>
 {{/if}}
+{% endraw %}
 ```
 
 ## DSS template
 
-```
+```text
 /template
     /assets
         /css
