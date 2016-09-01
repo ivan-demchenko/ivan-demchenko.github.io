@@ -11,7 +11,7 @@ permalink:  one-more-way-to-implement-carousel
 
 There are lots of implementations of it: jQuery based, vanilla-js based, heavy and lightweight. Some even claim that their solution is the only one you might ever need. However, there will always be a situation when the existing solution simply doesn't work.
 
-This, here at [AutoScout24](https://www.autoscout24.de/) we had to implement our own Carousel. We called it [showcar-carousel](https://github.com/AutoScout24/showcar-carousel) and I want to tell you about how we implemented it.
+Thus, here at [AutoScout24](https://www.autoscout24.de/) we had to implement our own Carousel. We called it [showcar-carousel](https://github.com/AutoScout24/showcar-carousel) and I want to tell you about how we implemented it.
 
 Our carousel should work in two modes: the one that moves a bunch of items left and right and the one that rotates the slides infinitely showing one at a time. The last one is particularly interesting because of the word **infinitely**.
 
