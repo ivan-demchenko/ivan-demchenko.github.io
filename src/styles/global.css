@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  height: 100%;
+}
+
+body > div,
+body > div > div {
+  height: 100%;
+}
+
+.portrait {
+  background-image: url('../images/me-light.png');
+}
+@media (prefers-color-scheme: dark) {
+  .portrait {
+    background-image: url('../images/me-dark.png');
+  }
+}

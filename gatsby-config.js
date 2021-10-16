@@ -1,10 +1,22 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "My Gatsby Blog",
+    siteUrl: "https://raqystyle.github.io",
+    title: "Ivan Demchenko's space",
+    social: {
+      twitter: "@raqystyle",
+      github: "raqystyle",
+    },
   },
   plugins: [
-    "gatsby-plugin-emotion",
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        cssLoaderOptions: {
+          exportLocalsConvention: false,
+          namedExport: false,
+        },
+      },
+    },
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
@@ -20,6 +32,14 @@ module.exports = {
       },
     },
     "gatsby-transformer-remark",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "posts",
+        path: "./src/posts/",
+      },
+      __key: "posts",
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
