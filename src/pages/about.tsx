@@ -25,13 +25,9 @@ const IndexPage = () => {
     url: queryResult.site.siteMetadata.siteUrl,
   };
   return (
-    <>
-      <WelcomeBanner />
-      <PageLayout
-        metadata={metadata}
-        header={<h1 className="text-4xl font-bold">About me</h1>}
-      />
-    </>
+    <PageLayout metadata={metadata} header={<WelcomeBanner />}>
+      <h1 className="text-4xl font-bold">About me</h1>
+    </PageLayout>
   );
 };
 

@@ -1,21 +1,28 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import { SitePageLink } from "../types";
+import { Container } from "./Container";
 
-export type NavigationProps = {
-  links: SitePageLink[];
-};
+const LINKS = [
+  { name: "Home", url: "/" },
+  { name: "Blog", url: "/blog/" },
+  { name: "Bookmarks", url: "/bookmarks/" },
+  { name: "About me", url: "/about/" },
+];
 
-export const Navigation: React.FC<NavigationProps> = ({ links }) => {
+export const Navigation: React.FC = () => {
   return (
-    <nav>
-      <ul className="flex">
-        {links.map((link) => (
-          <Link key={link.url} to={link.url} className="py-2 pr-8">
+    <Container as="nav">
+      <ul className="flex text-gray-700">
+        {LINKS.map((link) => (
+          <Link
+            key={link.url}
+            to={link.url}
+            className="py-2 pr-4 hover:text-blue-700"
+          >
             {link.name}
           </Link>
         ))}
       </ul>
-    </nav>
+    </Container>
   );
 };

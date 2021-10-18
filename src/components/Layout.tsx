@@ -1,22 +1,18 @@
 import * as React from "react";
+import { Footer } from "./Footer";
 import { Navigation } from "./Navigation";
 
 export type LayoutProps = {
-  header: React.ReactNode;
+  header?: React.ReactNode;
 };
 
 export const Layout: React.FC<LayoutProps> = (props) => {
   return (
-    <main className="container mx-auto px-4">
-      <Navigation
-        links={[
-          { name: "Home", url: "/" },
-          { name: "About me", url: "/about/" },
-          { name: "Bookmarks", url: "/bookmarks/" },
-        ]}
-      />
-      <section>{props.header}</section>
+    <>
+      <Navigation />
+      {props.header && <header>{props.header}</header>}
       {props.children}
-    </main>
+      <Footer />
+    </>
   );
 };

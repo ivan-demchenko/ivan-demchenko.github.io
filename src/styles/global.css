@@ -19,3 +19,9 @@ body > div > div {
     background-image: url('../images/me-dark.png');
   }
 }
+
+.hero-text-bg {
+  background-size: cover;
+  background-position: 50%;
+  background-image: url('../images/beach-pic.jpg');
+}
