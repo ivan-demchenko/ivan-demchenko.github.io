@@ -5,7 +5,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `posts` });
+    const slug = createFilePath({ node, getNode });
 
     createNodeField({
       node,
@@ -17,7 +17,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  const result = await graphql(`
+
+  const { data } = await graphql(`
     query {
       allMarkdownRemark {
         edges {
@@ -31,15 +32,15 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  const posts = data.allMarkdownRemark.edges;
+  console.log(JSON.stringify(posts, null, 2));
+
+  posts.forEach(({ node }) => {
+    const { slug } = node.fields;
     createPage({
-      path: node.fields.slug,
+      path: slug,
       component: path.resolve("./src/pages/blog-post.tsx"),
-      context: {
-        // Data passed to context is available
-        // in page queries as GraphQL variables.
-        slug: node.fields.slug,
-      },
+      context: { slug },
     });
   });
 };

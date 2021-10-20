@@ -35,8 +35,8 @@ export default function BlogPost({ data }: any) {
   );
 }
 
-export const query = graphql`
-  query BlogQuery($slug: String!) {
+export const pageQuery = graphql`
+  query BlogQuery($slug: String) {
     site {
       siteMetadata {
         title
