@@ -1,22 +1,9 @@
 import * as React from "react";
-import { graphql, Link, useStaticQuery } from "gatsby";
+import { graphql } from "gatsby";
 import { PageLayout } from "../components/PageLayout";
 
-const CVPage = () => {
-  const queryResult = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          title
-          siteUrl
-          social {
-            twitter
-          }
-        }
-      }
-    }
-  `);
-  const { site, allMarkdownRemark } = queryResult;
+export default function CVPage({ data }: any) {
+  const { site } = data;
   const metadata = {
     description: "There are the articles I wrote",
     image: "none",
@@ -32,6 +19,18 @@ const CVPage = () => {
       I did this and that...
     </PageLayout>
   );
-};
+}
 
-export default CVPage;
+export const pageQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        title
+        siteUrl
+        social {
+          twitter
+        }
+      }
+    }
+  }
+`;

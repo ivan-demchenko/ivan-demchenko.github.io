@@ -1,27 +1,15 @@
 import * as React from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql } from "gatsby";
 import { PageLayout } from "../components/PageLayout";
 
-const IndexPage = () => {
-  const queryResult = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          title
-          siteUrl
-          social {
-            twitter
-          }
-        }
-      }
-    }
-  `);
+export default function IndexPage({ data }: any) {
+  const { site } = data;
   const metadata = {
     description: "Ivan's blog",
     image: "none",
-    title: `Bookmarks - ${queryResult.site.siteMetadata.title}`,
-    twitter: queryResult.site.siteMetadata.social.twitter,
-    url: queryResult.site.siteMetadata.siteUrl,
+    title: `Bookmarks - ${site.siteMetadata.title}`,
+    twitter: site.siteMetadata.social.twitter,
+    url: site.siteMetadata.siteUrl,
   };
   return (
     <PageLayout
@@ -29,6 +17,18 @@ const IndexPage = () => {
       header={<h1 className="text-4xl font-bold">Bookmarks</h1>}
     />
   );
-};
+}
 
-export default IndexPage;
+export const pageQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        title
+        siteUrl
+        social {
+          twitter
+        }
+      }
+    }
+  }
+`;

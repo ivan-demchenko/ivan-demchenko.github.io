@@ -1,34 +1,10 @@
 import * as React from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql } from "gatsby";
 import { PageLayout } from "../components/PageLayout";
 import { BlogSnippet } from "../components/PostSnippet";
 
-const IndexPage = () => {
-  const queryResult = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          title
-          siteUrl
-          social {
-            twitter
-          }
-        }
-      }
-      allMarkdownRemark(limit: 10) {
-        nodes {
-          id
-          excerpt
-          frontmatter {
-            slug
-            date
-            title
-          }
-        }
-      }
-    }
-  `);
-  const { site, allMarkdownRemark } = queryResult;
+export default function IndexPage({ data }: any) {
+  const { site, blog } = data;
   const metadata = {
     description: "There are the articles I wrote",
     image: "none",
@@ -41,19 +17,44 @@ const IndexPage = () => {
       metadata={metadata}
       header={<h1 className="text-4xl font-bold">Blog</h1>}
     >
-      {allMarkdownRemark.nodes.map((node: any) => {
+      {blog.posts.map((post: any) => {
         return (
           <BlogSnippet
-            id={node.id}
-            date={node.frontmatter.date}
-            slug={node.frontmatter.slug}
-            title={node.frontmatter.title}
-            excerpt={node.excerpt}
+            id={post.id}
+            date={post.frontmatter.date}
+            slug={post.frontmatter.slug}
+            title={post.frontmatter.title}
+            excerpt={post.excerpt}
           />
         );
       })}
     </PageLayout>
   );
-};
+}
 
-export default IndexPage;
+export const pageQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        title
+        siteUrl
+        social {
+          twitter
+        }
+      }
+    }
+    blog: allMarkdownRemark(limit: 10) {
+      posts: nodes {
+        id
+        excerpt
+        fields {
+          slug
+        }
+        frontmatter {
+          date(formatString: "DD.MM.yyyy")
+          title
+        }
+      }
+    }
+  }
+`;

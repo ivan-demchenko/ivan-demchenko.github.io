@@ -1,35 +1,11 @@
 import * as React from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql } from "gatsby";
 import { PageLayout } from "../components/PageLayout";
 import { Greeting } from "../components/Greeting";
 import { BlogSnippet } from "../components/PostSnippet";
 
-const IndexPage = () => {
-  const queryResult = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          title
-          siteUrl
-          social {
-            twitter
-          }
-        }
-      }
-      allMarkdownRemark(limit: 3) {
-        nodes {
-          id
-          excerpt
-          frontmatter {
-            slug
-            date
-            title
-          }
-        }
-      }
-    }
-  `);
-  const { site, allMarkdownRemark } = queryResult;
+export default function IndexPage({ data }: any) {
+  const { site, blog } = data;
   const metadata = {
     description: "Ivan's blog",
     image: "none",
@@ -41,20 +17,45 @@ const IndexPage = () => {
     <PageLayout metadata={metadata} header={<Greeting />}>
       <>
         <h2 className="text-3xl pb-6">Latest blog posts</h2>
-        {allMarkdownRemark.nodes.map((node: any) => {
+        {blog.posts.map((post: any) => {
           return (
             <BlogSnippet
-              id={node.id}
-              date={node.frontmatter.date}
-              slug={node.frontmatter.slug}
-              title={node.frontmatter.title}
-              excerpt={node.excerpt}
+              id={post.id}
+              date={post.frontmatter.date}
+              slug={post.fields.slug}
+              title={post.frontmatter.title}
+              excerpt={post.excerpt}
             />
           );
         })}
       </>
     </PageLayout>
   );
-};
+}
 
-export default IndexPage;
+export const pageQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        title
+        siteUrl
+        social {
+          twitter
+        }
+      }
+    }
+    blog: allMarkdownRemark(limit: 3) {
+      posts: nodes {
+        id
+        excerpt
+        fields {
+          slug
+        }
+        frontmatter {
+          date(formatString: "DD.MM.yyyy")
+          title
+        }
+      }
+    }
+  }
+`;

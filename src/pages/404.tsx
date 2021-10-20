@@ -1,28 +1,18 @@
 import * as React from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql } from "gatsby";
 import { PageLayout } from "../components/PageLayout";
 import { Metadata } from "../types";
 
-const NotFoundPage = () => {
-  const meta = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          title
-          siteUrl
-          social {
-            twitter
-          }
-        }
-      }
-    }
-  `);
+export default function NotFoundPage({ data }: any) {
+  const { site } = data;
+
   const metadata: Metadata = {
     description: `The requested page was not found. But here are the alternatives`,
-    title: `Page not found - ${meta.site.siteMetadata.title}`,
-    url: meta.site.siteMetadata.siteUrl,
-    twitter: meta.site.siteMetadata.social.twitter,
+    title: `Page not found - ${site.siteMetadata.title}`,
+    url: site.siteMetadata.siteUrl,
+    twitter: site.siteMetadata.social.twitter,
   };
+
   return (
     <PageLayout
       metadata={metadata}
@@ -36,6 +26,18 @@ const NotFoundPage = () => {
       }
     />
   );
-};
+}
 
-export default NotFoundPage;
+export const pageQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        title
+        siteUrl
+        social {
+          twitter
+        }
+      }
+    }
+  }
+`;

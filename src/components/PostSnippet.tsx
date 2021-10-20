@@ -1,6 +1,5 @@
-import { Link } from "gatsby";
 import * as React from "react";
-import { PostPublishDate } from "./PostPublishDate";
+import { Link } from "gatsby";
 
 export type BlogSnippetProps = {
   id: string;
@@ -13,9 +12,11 @@ export type BlogSnippetProps = {
 export const BlogSnippet: React.FC<BlogSnippetProps> = (props) => {
   return (
     <div key={props.id}>
-      <PostPublishDate dateTime={props.date} />
+      <time dateTime={props.date} className="text-s text-gray-400 italic">
+        Published on the {props.date}
+      </time>
       <h3 className="text-xl font-bold">
-        <Link to={`/blog/${props.slug}`}>{props.title}</Link>
+        <Link to={props.slug}>{props.title}</Link>
       </h3>
       <p>{props.excerpt}</p>
     </div>
