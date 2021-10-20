@@ -1,6 +1,7 @@
 import * as React from "react";
-import { graphql, Link, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import { PageLayout } from "../components/PageLayout";
+import { BlogSnippet } from "../components/PostSnippet";
 
 const IndexPage = () => {
   const queryResult = useStaticQuery(graphql`
@@ -17,7 +18,10 @@ const IndexPage = () => {
       allMarkdownRemark(limit: 10) {
         nodes {
           id
+          excerpt
           frontmatter {
+            slug
+            date
             title
           }
         }
@@ -35,21 +39,19 @@ const IndexPage = () => {
   return (
     <PageLayout
       metadata={metadata}
-      header={<h1 className="text-7xl font-bold">Blog</h1>}
+      header={<h1 className="text-4xl font-bold">Blog</h1>}
     >
-      <ul>
-        {allMarkdownRemark.nodes.map((node: any) => {
-          return (
-            <li key={node.id}>
-              <h3>
-                <Link to={`/blog/${node.frontmatter.slug}`}>
-                  {node.frontmatter.title}
-                </Link>
-              </h3>
-            </li>
-          );
-        })}
-      </ul>
+      {allMarkdownRemark.nodes.map((node: any) => {
+        return (
+          <BlogSnippet
+            id={node.id}
+            date={node.frontmatter.date}
+            slug={node.frontmatter.slug}
+            title={node.frontmatter.title}
+            excerpt={node.excerpt}
+          />
+        );
+      })}
     </PageLayout>
   );
 };

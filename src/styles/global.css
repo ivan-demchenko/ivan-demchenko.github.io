@@ -11,6 +11,10 @@ body > div > div {
   height: 100%;
 }
 
+body {
+  @apply dark:bg-black dark:text-gray-300;
+}
+
 .portrait {
   background-image: url('../images/me-light.png');
 }
@@ -20,8 +24,15 @@ body > div > div {
   }
 }
 
-.hero-text-bg {
-  background-size: cover;
-  background-position: 50%;
+.welcomeBanner__text {
+  @apply bg-cover bg-center;
   background-image: url('../images/beach-pic.jpg');
+}
+
+.welcomeBanner__textWrapper {
+  @apply font-extrabold text-7xl md:text-8xl mb-4 tracking-tight;
+}
+
+.welcomeBanner__text {
+  @apply bg-clip-text text-transparent;
 }

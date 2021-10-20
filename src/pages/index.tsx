@@ -1,7 +1,8 @@
 import * as React from "react";
-import { graphql, Link, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import { PageLayout } from "../components/PageLayout";
 import { Greeting } from "../components/Greeting";
+import { BlogSnippet } from "../components/PostSnippet";
 
 const IndexPage = () => {
   const queryResult = useStaticQuery(graphql`
@@ -18,8 +19,10 @@ const IndexPage = () => {
       allMarkdownRemark(limit: 3) {
         nodes {
           id
+          excerpt
           frontmatter {
             slug
+            date
             title
           }
         }
@@ -35,24 +38,21 @@ const IndexPage = () => {
     url: site.siteMetadata.siteUrl,
   };
   return (
-    <PageLayout metadata={metadata}>
-      <Greeting />
-      <section>
-        <h2 className="text-3xl font-bold">Latest blog posts</h2>
-        <ul>
-          {allMarkdownRemark.nodes.map((node: any) => {
-            return (
-              <li key={node.id}>
-                <h3>
-                  <Link to={`/blog/${node.frontmatter.slug}`}>
-                    {node.frontmatter.title}
-                  </Link>
-                </h3>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
+    <PageLayout metadata={metadata} header={<Greeting />}>
+      <>
+        <h2 className="text-3xl pb-6">Latest blog posts</h2>
+        {allMarkdownRemark.nodes.map((node: any) => {
+          return (
+            <BlogSnippet
+              id={node.id}
+              date={node.frontmatter.date}
+              slug={node.frontmatter.slug}
+              title={node.frontmatter.title}
+              excerpt={node.excerpt}
+            />
+          );
+        })}
+      </>
     </PageLayout>
   );
 };

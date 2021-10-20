@@ -1,28 +1,24 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import { Container } from "./Container";
 
 const LINKS = [
   { name: "Home", url: "/" },
-  { name: "Blog", url: "/blog/" },
-  { name: "Bookmarks", url: "/bookmarks/" },
-  { name: "About me", url: "/about/" },
+  { name: "Blog", url: "/blog" },
+  { name: "Bookmarks", url: "/bookmarks" },
+  { name: "CV", url: "/cv" },
+  { name: "About", url: "/about" },
 ];
 
 export const Navigation: React.FC = () => {
   return (
-    <Container as="nav">
-      <ul className="flex text-gray-700">
+    <nav className="font-bold py-4 max-w-md">
+      <ul className="flex justify-between">
         {LINKS.map((link) => (
-          <Link
-            key={link.url}
-            to={link.url}
-            className="py-2 pr-4 hover:text-blue-700"
-          >
+          <Link key={link.url} to={link.url} className="hover:text-blue-400">
             {link.name}
           </Link>
         ))}
       </ul>
-    </Container>
+    </nav>
   );
 };
