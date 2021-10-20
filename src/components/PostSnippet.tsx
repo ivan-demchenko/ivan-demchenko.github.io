@@ -11,7 +11,7 @@ export type BlogSnippetProps = {
 
 export const BlogSnippet: React.FC<BlogSnippetProps> = (props) => {
   return (
-    <div key={props.id}>
+    <div key={props.id} className="mb-8 pb-8 border-b-2 border-gray-900">
       <time dateTime={props.date} className="text-s text-gray-400 italic">
         Published on the {props.date}
       </time>

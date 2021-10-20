@@ -22,7 +22,7 @@ export default function IndexPage({ data }: any) {
           <BlogSnippet
             id={post.id}
             date={post.frontmatter.date}
-            slug={post.frontmatter.slug}
+            slug={post.fields.slug}
             title={post.frontmatter.title}
             excerpt={post.excerpt}
           />
@@ -51,7 +51,7 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "DD.MM.yyyy")
+          date(formatString: "DD MMMM YYYY")
           title
         }
       }
