@@ -1,10 +1,10 @@
 ---
 title: Life is too short to complain about bad decisions of other people
 date: 2021-09-06
-tags: ["post"]
+tags: ["decisions"]
 ---
 One morning, taking a cold shower (against my will) a thought crossed my mind. I realised how complaining about the absence of hot water due to my landlord's decisions is similar to what I have been hearing from software engineers.
-<!--///-->
+
 (Yes, ideas come during taking shower)
 
 It all started in July 2021. I received an email from my landlord saying something along the lines of "I decided to replace the hearing system so that we all benefit from less emission and less costs". The plan was to complete the project in 2 weeks. It didn't happen (I'll explain why a bit later). Now it's September and there's still no hot water in our building. Needless to say, nobody is happy about this situation, especially families.

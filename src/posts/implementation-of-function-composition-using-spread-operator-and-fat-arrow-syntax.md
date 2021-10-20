@@ -1,10 +1,10 @@
 ---
 title: Implementation of function composition using spread operator and fat-arrow syntax
 date: 2016-09-09
-tags: ["post"]
+tags: ["functional programming"]
 ---
 In this note, I would like to present my implementation of the function that performs function composition. We’re going to use spread operator and fat-arrow functions.
-<!--///-->
+
 First of all, it is not about writing shorter code or hacking around so that nobody understands it afterwards. If you are not familiar with this new syntax, you might find these two articles useful: [fat-arrow functions](http://www-db.deis.unibo.it/courses/TW/DOCS/JS/developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions.html) and [spread syntax](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Spread_operator).
 
 I’ll start with the initial, "old-school" implementation of `comp` function:

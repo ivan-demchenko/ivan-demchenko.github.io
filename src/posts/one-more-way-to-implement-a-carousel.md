@@ -1,10 +1,10 @@
 ---
 title: One more way to implement a carousel
 date: 2016-08-30
-tags: ["post"]
+tags: ["front-end"]
 ---
 There are lots of implementations of it: jQuery based, vanilla-js based, heavy and lightweight. Some even claim that their solution is the only one you might ever need. However, there will always be a situation when the existing solution simply doesn’t work.
-<!--///-->
+
 Here, at [AutoScout24](https://www.autoscout24.de/) we just had such situation and we decided to implement our own Carousel. We called it `showcar-carousel`. Please, do not hesitate to check the code out on [GitHub repo for showcar-carousel](https://github.com/AutoScout24/showcar-carousel).
 
 Our carousel should work in two modes: the one that moves a bunch of items left and right and the one that rotates the slides infinitely showing one at a time. The last one is particularly interesting because of the word **infinitely**.
@@ -15,11 +15,11 @@ We are among those lucky guys who decided that the Flexbox is the right choice f
 
 I prepared a few pictures to demonstrate how it works. First we begin with the initial state:
 
-![Initial state of the carousel](/assets/img/2016-08-30/1.1.png)
+![Initial state of the carousel](/images/one-more-way-to-implement-a-carousel/1.1.png)
 
 The blue area is our viewport, what the user sees. The green block is the flex container that holds the items. And the yellow ones are the slides. As you can see we have two slides in the container at a time. When the user navigates to the next slide we have enough slides for a smooth transition. We then just `translate` the green div. So, it looks like this:
 
-![The second slide eases in in the viewport](/assets/img/2016-08-30/1.2.png)
+![The second slide eases in in the viewport](/images/one-more-way-to-implement-a-carousel/1.2.png)
 
 And now we use the magic of the flexbox `order` property. We have to do two things at the same time:
 
@@ -33,7 +33,7 @@ What I mean by reordering is easier to demonstrate with JavaScript arrays:
 
 Thus, our first image becomes the last one and the second image become the fist one and so on. After reordering and jumping back, the situation looks like this:
 
-![The state of the carousel after all the transitions](/assets/img/2016-08-30/1.3.png)
+![The state of the carousel after all the transitions](/images/one-more-way-to-implement-a-carousel/1.3.png)
 
 And we’re ready to go to the next slide again.
 

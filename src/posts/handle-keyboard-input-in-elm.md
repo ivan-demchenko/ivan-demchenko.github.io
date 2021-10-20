@@ -1,10 +1,10 @@
 ---
 title: Handle keyboard input in Elm
 date: 2017-11-24
-tags: ["post"]
+tags: ["elm"]
 ---
 Often we need to perform certain actions as a feedback to the input from the keyboard. For example, when we need to navigate within a list up and down or perform an action when the meta key (alt or shift) is pressed.
-<!--///-->
+
 ## Binding messages to keys
 
 The most natural and convenient way to specify which action must be performed when a key is pressed is to use a dictionary. We going to use a list of tuples of key codes plus messages. In the function below the first argument is the default (or fallback) action and the second argument is the mapping of keys to messages:

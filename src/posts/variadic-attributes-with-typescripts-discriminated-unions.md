@@ -1,10 +1,10 @@
 ---
 title: Variadic attributes with TypeScripts Discriminated Unions
 date: 2020-11-10
-tags: ["post"]
+tags: ["typescript"]
 ---
 Sometimes, we need to create a component that serves multiple use-cases. As such, depending on some key attribute, the set of all others might differ. One example is a date picker component. Let's see how we can implement it.
-<!--///-->
+
 Imagine our date picker should allow a consumer to select a single date of a range of dates. Let's try to visualise such use-cases:
 
 ```tsx

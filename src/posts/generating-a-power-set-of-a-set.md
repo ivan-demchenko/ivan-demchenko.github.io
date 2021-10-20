@@ -1,10 +1,10 @@
 ---
 title: Generating a power set of a set
 date: 2021-09-01
-tags: ["post"]
+tags: ["algorithms"]
 ---
 There's a class of problems that deal with subsets, permutations and so on. Let's find a way to generate a power set of a set with distinct elements. This is a [problem #78 on LeetCode](https://leetcode.com/problems/subsets/).
-<!--///-->
+
 ## What is backtracking?
 According to [Wikipedia](https://en.wikipedia.org/wiki/Backtracking), backtracking is a general algorithm (or an idea) of searching all the solutions by reducing the search space. It's really close to brute force, try all the options. But at some point we need to take a step back (backtrack) if we cannot proceed.
 

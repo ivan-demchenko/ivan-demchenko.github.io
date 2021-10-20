@@ -1,10 +1,9 @@
 ---
 title: Monads and JavaScript
 date: 2018-05-07
-tags: ["post"]
+tags: ["functional programming"]
 ---
 There are countless articles that aim to describe what monads are. Sure, I can’t resist writing another one of my own.
-<!--///-->
 
 ## Stepping into contexts
 
