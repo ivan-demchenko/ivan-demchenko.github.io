@@ -8,7 +8,7 @@ export type PostTagProps = {
 export const PostTag: React.FC<PostTagProps> = ({ tag }) => {
   return (
     <Link
-      className="dark:bg-gray-900 m-2 py-2 px-6 rounded-full"
+      className="dark:bg-gray-900 bg-gray-100 m-2 py-2 px-6 rounded-full"
       to={`/tag/${tag}`}
     >
       {tag}

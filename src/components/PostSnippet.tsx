@@ -10,7 +10,7 @@ export type BlogSnippetProps = {
 
 export const BlogSnippet: React.FC<BlogSnippetProps> = (props) => {
   return (
-    <div className="mb-8 pb-8 border-b-2 border-gray-900">
+    <div className="mb-8 pb-8 border-b-2 border-gray-200 dark:border-gray-900">
       <h3>
         <Link to={props.slug}>{props.title}</Link>
       </h3>
