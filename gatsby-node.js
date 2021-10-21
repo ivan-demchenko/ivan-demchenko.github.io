@@ -15,9 +15,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 };
 
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
-
+async function createBlogPages(graphql, createPage) {
   const { data } = await graphql(`
     query {
       allMarkdownRemark {
@@ -33,7 +31,6 @@ exports.createPages = async ({ graphql, actions }) => {
   `);
 
   const posts = data.allMarkdownRemark.edges;
-  console.log(JSON.stringify(posts, null, 2));
 
   posts.forEach(({ node }) => {
     const { slug } = node.fields;
@@ -43,4 +40,38 @@ exports.createPages = async ({ graphql, actions }) => {
       context: { slug },
     });
   });
+}
+
+async function createTagsPages(graphql, createPage) {
+  const { data } = await graphql(`
+    query {
+      tags: allMarkdownRemark {
+        nodes {
+          frontmatter {
+            tags
+          }
+        }
+      }
+    }
+  `);
+
+  const tagsSet = new Set();
+  const { nodes } = data.tags;
+  nodes.forEach(({ frontmatter }) => {
+    frontmatter.tags.forEach((tag) => tagsSet.add(tag));
+  });
+  Array.from(tagsSet).forEach((tag) => {
+    createPage({
+      path: `/tag/${tag}`,
+      component: path.resolve("./src/pages/tag.tsx"),
+      context: { tags: [tag] },
+    });
+  });
+}
+
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+
+  await createBlogPages(graphql, createPage);
+  await createTagsPages(graphql, createPage);
 };

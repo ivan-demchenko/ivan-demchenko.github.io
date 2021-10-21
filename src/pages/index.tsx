@@ -1,11 +1,22 @@
 import * as React from "react";
-import { graphql } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import { PageLayout } from "../components/PageLayout";
 import { Greeting } from "../components/Greeting";
 import { BlogSnippet } from "../components/PostSnippet";
+import { getUniqueTags } from "../utils";
+import {
+  SiteQueryResult,
+  BlogPostsQueryResult,
+  TagsQueryResult,
+} from "../types";
+import { PostTag } from "../components/PostTag";
 
-export default function IndexPage({ data }: any) {
-  const { site, blog } = data;
+export default function IndexPage({
+  data,
+}: PageProps<SiteQueryResult & BlogPostsQueryResult & TagsQueryResult>) {
+  const { site, tags, blog } = data;
+  const uniqueTags = getUniqueTags(tags);
+
   const metadata = {
     description: "Ivan's blog",
     image: "none",
@@ -15,12 +26,12 @@ export default function IndexPage({ data }: any) {
   };
   return (
     <PageLayout metadata={metadata} header={<Greeting />}>
-      <>
-        <h2 className="text-3xl pb-6">Latest blog posts</h2>
+      <h2 className="text-4xl pb-10">Recent blog posts</h2>
+      <div className="prose prose-lg dark:prose-dark mb-8">
         {blog.posts.map((post: any) => {
           return (
             <BlogSnippet
-              id={post.id}
+              key={post.id}
               date={post.frontmatter.date}
               slug={post.fields.slug}
               title={post.frontmatter.title}
@@ -28,7 +39,13 @@ export default function IndexPage({ data }: any) {
             />
           );
         })}
-      </>
+      </div>
+      <h2 className="text-4xl pb-10">Topics I write about</h2>
+      <div className="flex flex-wrap">
+        {uniqueTags.map((tag) => (
+          <PostTag key={tag} tag={tag} />
+        ))}
+      </div>
     </PageLayout>
   );
 }
@@ -44,6 +61,13 @@ export const pageQuery = graphql`
         }
       }
     }
+    tags: allMarkdownRemark {
+      nodes {
+        frontmatter {
+          tags
+        }
+      }
+    }
     blog: allMarkdownRemark(limit: 3) {
       posts: nodes {
         id
@@ -52,6 +76,7 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
+          tags
           date(formatString: "DD.MM.yyyy")
           title
         }

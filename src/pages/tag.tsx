@@ -1,24 +1,32 @@
 import * as React from "react";
-import { graphql } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import { PageLayout } from "../components/PageLayout";
 import { BlogSnippet } from "../components/PostSnippet";
+import { SiteQueryResult, BlogPostsQueryResult } from "../types";
 
-export default function BlogPage({ data }: any) {
+export default function TagPage(
+  props: PageProps<SiteQueryResult & BlogPostsQueryResult, { tags: string[] }>
+) {
+  const { data, pageContext } = props;
   const { site, blog } = data;
   const metadata = {
-    description: "There are the articles I wrote",
+    description: `My posts I wrote about ${pageContext.tags[0]}`,
     image: "none",
-    title: `Blog - ${site.siteMetadata.title}`,
+    title: `Topic: ${pageContext.tags[0]} - ${site.siteMetadata.title}`,
     twitter: site.siteMetadata.social.twitter,
     url: site.siteMetadata.siteUrl,
   };
   return (
     <PageLayout
       metadata={metadata}
-      header={<h1 className="text-4xl font-bold py-10">Blog</h1>}
+      header={
+        <h1 className="text-4xl font-bold py-10">
+          Topic: {pageContext.tags[0]}
+        </h1>
+      }
     >
       <div className="prose prose-lg dark:prose-dark">
-        {blog.posts.map((post: any) => {
+        {blog.posts.map((post) => {
           return (
             <BlogSnippet
               key={post.id}
@@ -35,7 +43,7 @@ export default function BlogPage({ data }: any) {
 }
 
 export const pageQuery = graphql`
-  {
+  query TagPage($tags: [String]) {
     site {
       siteMetadata {
         title
@@ -45,7 +53,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    blog: allMarkdownRemark(limit: 10) {
+    blog: allMarkdownRemark(filter: { frontmatter: { tags: { in: $tags } } }) {
       posts: nodes {
         id
         excerpt
@@ -53,7 +61,8 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "DD MMMM YYYY")
+          tags
+          date(formatString: "DD.MM.yyyy")
           title
         }
       }

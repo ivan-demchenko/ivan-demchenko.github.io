@@ -1,8 +1,9 @@
 import * as React from "react";
-import { graphql } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import { PageLayout } from "../components/PageLayout";
+import { SiteQueryResult } from "../types";
 
-export default function CVPage({ data }: any) {
+export default function CVPage({ data }: PageProps<SiteQueryResult>) {
   const { site } = data;
   const metadata = {
     description: "There are the articles I wrote",
@@ -14,7 +15,7 @@ export default function CVPage({ data }: any) {
   return (
     <PageLayout
       metadata={metadata}
-      header={<h1 className="text-4xl font-bold">CV</h1>}
+      header={<h1 className="text-4xl font-bold py-10">CV</h1>}
     >
       I did this and that...
     </PageLayout>

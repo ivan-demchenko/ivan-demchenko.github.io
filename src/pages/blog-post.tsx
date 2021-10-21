@@ -1,8 +1,12 @@
 import * as React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql, Link, PageProps } from "gatsby";
 import { PostLayout } from "../components/PostLayout";
+import { PostQueryResult, SiteQueryResult } from "../types";
+import { PostTag } from "../components/PostTag";
 
-export default function BlogPost({ data }: any) {
+export default function BlogPost({
+  data,
+}: PageProps<SiteQueryResult & PostQueryResult>) {
   const { site, post } = data;
   const metadata = {
     description: post.excerpt,
@@ -21,15 +25,21 @@ export default function BlogPost({ data }: any) {
       }
     >
       <aside className="text-sm py-6 italic">
-        Posted on {post.frontmatter.date}. Reading time{" "}
-        {Math.ceil(post.wordCount.words / 100)} mins.
+        <p>Posted on {post.frontmatter.date}.</p>
+        <p>Reading time {Math.ceil(post.wordCount.words / 100)} mins.</p>
       </aside>
       <article
-        className="prose prose-lg dark:prose-dark"
+        className="prose prose-lg dark:prose-dark border-b-2 border-gray-800 pb-8 mb-8"
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
+      <aside>
+        Topic(s) of this post:{" "}
+        {post.frontmatter.tags.map((tag) => (
+          <PostTag key={tag} tag={tag} />
+        ))}
+      </aside>
       <aside className="my-12">
-        <Link to="/blog">Back</Link> to other posts.
+        <Link to="/blog">&larr; Back to other posts.</Link>
       </aside>
     </PostLayout>
   );
@@ -53,6 +63,7 @@ export const pageQuery = graphql`
       html
       excerpt
       frontmatter {
+        tags
         title
         date(formatString: "DD MMMM YYYY")
       }

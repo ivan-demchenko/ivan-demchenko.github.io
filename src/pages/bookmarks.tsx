@@ -1,8 +1,9 @@
 import * as React from "react";
-import { graphql } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import { PageLayout } from "../components/PageLayout";
+import { SiteQueryResult } from "../types";
 
-export default function IndexPage({ data }: any) {
+export default function IndexPage({ data }: PageProps<SiteQueryResult>) {
   const { site } = data;
   const metadata = {
     description: "Ivan's blog",
@@ -14,7 +15,7 @@ export default function IndexPage({ data }: any) {
   return (
     <PageLayout
       metadata={metadata}
-      header={<h1 className="text-4xl font-bold">Bookmarks</h1>}
+      header={<h1 className="text-4xl font-bold py-10">Bookmarks</h1>}
     />
   );
 }

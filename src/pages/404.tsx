@@ -17,7 +17,7 @@ export default function NotFoundPage({ data }: any) {
     <PageLayout
       metadata={metadata}
       header={
-        <h1 className="text-4xl font-bold">
+        <h1 className="text-4xl font-bold py-10">
           Page not found
           <span role="img" aria-label="Pensive emoji">
             😔
