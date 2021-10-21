@@ -22,9 +22,13 @@ export default function IndexPage({
       metadata={metadata}
       header={<WelcomeBanner />}
     >
-      <section>
-        <h2 className="text-4xl pb-10">About me</h2>
-        <p>Lorem ipsum</p>
+      <section className="prose prose-lg dark:prose-dark mb-8">
+        <h2>About me</h2>
+        <p>Hi, I'm Ivan. I love building web apps and working with great people! I am Ukrainian, but currently, I reside in Germany; I also spent a few fantastic years with my family in Australia.</p>
+        <p>You are very welcome to checkout my LinkedIn and GitHub profiles.</p>
+        <h3>A bit of nostalgia</h3>
+        <p>I got my first computer when I was at 10th grade (children in Ukraine go to school for 12 years). That was a really nice PC: Celeron 700 MHz, 128 MB RAM, 15 GB HDD, nVidia Vanta Video card and awesome 15” Sony monitor. I was a really cool guy with that set up. At that time, the most comfortable resolution was 1024x768 because monitor could keep 72 Hz refresh rate. I could set a higher resolution but then, the refresh rate would drop dramatically. Also, I think I still remember how to reinstall Windows 98 using floppy disk. Oh, good old days…</p>
+        <p>After the first two weeks of non stop Quake III Area, I finally got access to the Internet. Yes via modem and land line. The next question was "what is behind a web-page"? Thus, I started searching how to build a web-page. It was a great time! One discovery led to another. Later, I decided that I need a good text editor. This is how I started with Delphi. Actually, I built quite a nice text editor with syntax highlight, tabs, live-preview and configurable set of functions (something like macros, but simpler). However, I had to start my preparations for final exams and I stopped working on an editor.</p>
       </section>
       <section className="mb-10">
         <h2 className="text-4xl pb-10">Articles in my Pocket</h2>

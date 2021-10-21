@@ -71,7 +71,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    blog: allMarkdownRemark(limit: 10) {
+    blog: allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
       posts: nodes {
         id
         excerpt
