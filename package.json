@@ -12,7 +12,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.4.1",
@@ -39,6 +40,7 @@
   },
   "devDependencies": {
     "@types/react-helmet": "^6.1.4",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "gh-pages": "^3.2.3"
   }
 }
