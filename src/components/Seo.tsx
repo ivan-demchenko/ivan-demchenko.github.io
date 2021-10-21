@@ -10,7 +10,11 @@ export type SeoProps = {
 export const Seo = (props: SeoProps) => {
   const { isBlogPost, meta } = props;
   return (
-    <Helmet>
+    <Helmet
+      htmlAttributes={{
+        lang: "en",
+      }}
+    >
       <title>{meta.title}</title>
       <meta name="description" content={meta.description} />
       <meta name="image" content={meta.image} />
