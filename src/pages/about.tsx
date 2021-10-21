@@ -14,7 +14,11 @@ export default function IndexPage({ data }: PageProps<SiteQueryResult>) {
     url: site.siteMetadata.siteUrl,
   };
   return (
-    <PageLayout metadata={metadata} header={<WelcomeBanner />}>
+    <PageLayout
+      activeLinkUrl="/about"
+      metadata={metadata}
+      header={<WelcomeBanner />}
+    >
       <h1 className="text-4xl font-bold py-10">About me</h1>
     </PageLayout>
   );

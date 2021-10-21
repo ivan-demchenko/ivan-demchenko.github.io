@@ -17,6 +17,7 @@ export default function BlogPost({
   };
   return (
     <PostLayout
+      activeLinkUrl="/blog"
       metadata={metadata}
       header={
         <div className="bg-gradient-to-br dark:from-gray-800 dark:to-black from-gray-100 to-white py-16">
@@ -24,22 +25,25 @@ export default function BlogPost({
         </div>
       }
     >
-      <aside className="text-sm py-6 italic">
+      <aside className="text-sm py-10 italic">
         <p>Posted on {post.frontmatter.date}.</p>
         <p>Reading time {Math.ceil(post.wordCount.words / 100)} mins.</p>
       </aside>
       <article
-        className="prose prose-lg dark:prose-dark border-b-2 border-gray-800 pb-8 mb-8"
+        className="prose prose-lg pb-8 mb-8"
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
-      <aside>
+      <div className="divider">
+        <i />
+      </div>
+      <aside className="my-12">
         Topic(s) of this post:{" "}
         {post.frontmatter.tags.map((tag) => (
           <PostTag key={tag} tag={tag} />
         ))}
       </aside>
       <aside className="my-12">
-        <Link to="/blog">&larr; Back to other posts.</Link>
+        <Link to="/blog">&larr; Back to other posts</Link>
       </aside>
     </PostLayout>
   );

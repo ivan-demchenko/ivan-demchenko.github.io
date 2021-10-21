@@ -18,6 +18,7 @@ export default function TagPage(
   };
   return (
     <PageLayout
+      activeLinkUrl="/blog"
       metadata={metadata}
       header={
         <h1 className="text-4xl font-bold py-10">

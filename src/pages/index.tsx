@@ -25,7 +25,7 @@ export default function IndexPage({
     url: site.siteMetadata.siteUrl,
   };
   return (
-    <PageLayout metadata={metadata} header={<Greeting />}>
+    <PageLayout metadata={metadata} header={<Greeting />} activeLinkUrl="/">
       <h2 className="text-4xl pb-10">Recent blog posts</h2>
       <div className="prose prose-lg dark:prose-dark mb-8">
         {blog.posts.map((post: any) => {

@@ -14,6 +14,7 @@ export default function IndexPage({ data }: PageProps<SiteQueryResult>) {
   };
   return (
     <PageLayout
+      activeLinkUrl="/bookmarks"
       metadata={metadata}
       header={<h1 className="text-4xl font-bold py-10">Bookmarks</h1>}
     />

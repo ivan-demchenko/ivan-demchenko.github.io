@@ -15,6 +15,16 @@ body {
   @apply dark:bg-black dark:text-gray-300;
 }
 
+.divider {
+  @apply flex items-center justify-center
+}
+.divider::before,
+.divider::after,
+.divider i {
+  content: "";
+  @apply w-1 h-1 block bg-gray-500 rounded-full mx-4
+}
+
 .portrait {
   background-image: url('../images/me-light.png');
 }

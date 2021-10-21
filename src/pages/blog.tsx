@@ -1,10 +1,20 @@
 import * as React from "react";
-import { graphql } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import { PageLayout } from "../components/PageLayout";
 import { BlogSnippet } from "../components/PostSnippet";
+import { getUniqueTags } from "../utils";
+import {
+  SiteQueryResult,
+  BlogPostsQueryResult,
+  TagsQueryResult,
+} from "../types";
+import { PostTag } from "../components/PostTag";
 
-export default function BlogPage({ data }: any) {
-  const { site, blog } = data;
+export default function BlogPage({
+  data,
+}: PageProps<SiteQueryResult & BlogPostsQueryResult & TagsQueryResult>) {
+  const { site, blog, tags } = data;
+  const uniqueTags = getUniqueTags(tags);
   const metadata = {
     description: "There are the articles I wrote",
     image: "none",
@@ -14,9 +24,15 @@ export default function BlogPage({ data }: any) {
   };
   return (
     <PageLayout
+      activeLinkUrl="/blog"
       metadata={metadata}
       header={<h1 className="text-4xl font-bold py-10">Blog</h1>}
     >
+      <div className="flex flex-wrap items-start">
+        {uniqueTags.map((tag) => (
+          <PostTag key={tag} tag={tag} />
+        ))}
+      </div>
       <div className="prose prose-lg dark:prose-dark">
         {blog.posts.map((post: any) => {
           return (
@@ -35,13 +51,20 @@ export default function BlogPage({ data }: any) {
 }
 
 export const pageQuery = graphql`
-  {
+  query BlogPage {
     site {
       siteMetadata {
         title
         siteUrl
         social {
           twitter
+        }
+      }
+    }
+    tags: allMarkdownRemark {
+      nodes {
+        frontmatter {
+          tags
         }
       }
     }

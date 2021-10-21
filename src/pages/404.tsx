@@ -1,9 +1,9 @@
 import * as React from "react";
-import { graphql } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import { PageLayout } from "../components/PageLayout";
-import { Metadata } from "../types";
+import { Metadata, SiteQueryResult } from "../types";
 
-export default function NotFoundPage({ data }: any) {
+export default function NotFoundPage({ data }: PageProps<SiteQueryResult>) {
   const { site } = data;
 
   const metadata: Metadata = {
@@ -15,6 +15,7 @@ export default function NotFoundPage({ data }: any) {
 
   return (
     <PageLayout
+      activeLinkUrl="/404"
       metadata={metadata}
       header={
         <h1 className="text-4xl font-bold py-10">

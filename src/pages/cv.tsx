@@ -14,6 +14,7 @@ export default function CVPage({ data }: PageProps<SiteQueryResult>) {
   };
   return (
     <PageLayout
+      activeLinkUrl="/cv"
       metadata={metadata}
       header={<h1 className="text-4xl font-bold py-10">CV</h1>}
     >

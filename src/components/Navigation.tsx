@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Link } from "gatsby";
+import cx from "classnames";
 
 const LINKS = [
   { name: "Home", url: "/" },
@@ -9,12 +10,22 @@ const LINKS = [
   { name: "About", url: "/about" },
 ];
 
-export const Navigation: React.FC = () => {
+export type NavigationProps = {
+  activeLinkUrl: string;
+};
+
+export const Navigation: React.FC<NavigationProps> = ({ activeLinkUrl }) => {
   return (
-    <nav className="font-bold py-4 max-w-md">
-      <ul className="flex justify-between">
+    <nav className="font-bold py-4 border-gray-200 dark:border-gray-800 border-b-2">
+      <ul className="flex justify-between max-w-md">
         {LINKS.map((link) => (
-          <Link key={link.url} to={link.url} className="hover:text-blue-400">
+          <Link
+            key={link.url}
+            to={link.url}
+            className={cx("hover:text-blue-400", {
+              underline: activeLinkUrl === link.url,
+            })}
+          >
             {link.name}
           </Link>
         ))}
