@@ -30,7 +30,7 @@ export default function BlogPost({
         <p>Reading time {Math.ceil(post.wordCount.words / 100)} mins.</p>
       </aside>
       <article
-        className="prose prose-lg pb-8 mb-8"
+        className="prose prose-lg dark:prose-dark pb-8 mb-8"
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
       <div className="divider">

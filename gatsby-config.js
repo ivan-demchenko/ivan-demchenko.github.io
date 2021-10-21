@@ -8,6 +8,27 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              noInlineHighlight: true,
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              backgroundColor: "transparent",
+              maxWidth: 590,
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
@@ -31,7 +52,6 @@ module.exports = {
         icon: "src/images/icon.png",
       },
     },
-    "gatsby-transformer-remark",
     {
       resolve: "gatsby-source-filesystem",
       options: {

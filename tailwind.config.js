@@ -24,17 +24,11 @@ module.exports = {
               color: theme("colors.red.900"),
               padding: theme("spacing.1"),
             },
-            pre: {
-              backgroundColor: theme("colors.gray.100"),
-              borderRadius: theme("borderRadius.md"),
-              color: theme("colors.red.900"),
-              padding: theme("spacing.1"),
-            },
           },
         },
         dark: {
           css: {
-            color: theme("colors.gray.300"),
+            color: theme("colors.gray.200"),
             h1: { color: theme("colors.gray.300") },
             h2: { color: theme("colors.gray.400") },
             h3: { color: theme("colors.gray.400") },
@@ -47,10 +41,6 @@ module.exports = {
               color: theme("colors.gray.300"),
             },
             code: {
-              backgroundColor: theme("colors.gray.800"),
-              color: theme("colors.yellow.400"),
-            },
-            pre: {
               backgroundColor: theme("colors.gray.800"),
               color: theme("colors.yellow.400"),
             },

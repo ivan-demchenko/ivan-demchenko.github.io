@@ -22,7 +22,7 @@ body {
 .divider::after,
 .divider i {
   content: "";
-  @apply w-1 h-1 block bg-gray-500 rounded-full mx-4
+  @apply w-2 h-2 block bg-gray-400 dark:bg-gray-600 rounded-full mx-4
 }
 
 .portrait {
