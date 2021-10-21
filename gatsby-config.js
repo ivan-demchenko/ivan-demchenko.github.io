@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 module.exports = {
   siteMetadata: {
     siteUrl: "https://raqystyle.github.io",
@@ -9,6 +11,16 @@ module.exports = {
     },
   },
   plugins: [
+    {
+      resolve: `gatsby-source-pocket`,
+      options: {
+        consumerKey: process.env.POCKET_CONSUMER_KEY,
+        accessToken: process.env.POCKET_ACCESS_TOKEN,
+        weeksOfHistory: 52,
+        apiMaxRecordsToReturn: 3000,
+        getCurrentWeekOnly: `n`,
+      },
+    },
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
