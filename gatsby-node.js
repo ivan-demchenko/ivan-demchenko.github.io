@@ -36,7 +36,7 @@ async function createBlogPages(graphql, createPage) {
     const { slug } = node.fields;
     createPage({
       path: slug,
-      component: path.resolve("./src/pages/blog-post.tsx"),
+      component: path.resolve("./src/dynamicPages/blog-post.tsx"),
       context: { slug },
     });
   });
@@ -63,7 +63,7 @@ async function createTagsPages(graphql, createPage) {
   Array.from(tagsSet).forEach((tag) => {
     createPage({
       path: `/tag/${tag}`,
-      component: path.resolve("./src/pages/tag.tsx"),
+      component: path.resolve("./src/dynamicPages/tag.tsx"),
       context: { tags: [tag] },
     });
   });
