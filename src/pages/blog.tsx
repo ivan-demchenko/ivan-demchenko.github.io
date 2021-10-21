@@ -24,6 +24,7 @@ export default function BlogPage({
   };
   return (
     <PageLayout
+      social={site.siteMetadata.social}
       activeLinkUrl="/blog"
       metadata={metadata}
       header={<h1 className="text-4xl font-bold py-10">Blog</h1>}
@@ -58,6 +59,8 @@ export const pageQuery = graphql`
         siteUrl
         social {
           twitter
+          github
+          linkedin
         }
       }
     }

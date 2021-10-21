@@ -14,6 +14,7 @@ export default function CVPage({ data }: PageProps<SiteQueryResult>) {
   };
   return (
     <PageLayout
+      social={site.siteMetadata.social}
       activeLinkUrl="/cv"
       metadata={metadata}
       header={<h1 className="text-4xl font-bold py-10">CV</h1>}
@@ -31,6 +32,8 @@ export const pageQuery = graphql`
         siteUrl
         social {
           twitter
+          github
+          linkedin
         }
       }
     }

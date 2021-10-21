@@ -3,8 +3,9 @@ module.exports = {
     siteUrl: "https://raqystyle.github.io",
     title: "Ivan Demchenko's space",
     social: {
-      twitter: "@raqystyle",
+      twitter: "raqystyle",
       github: "raqystyle",
+      linkedin: "ivandemchenko",
     },
   },
   plugins: [

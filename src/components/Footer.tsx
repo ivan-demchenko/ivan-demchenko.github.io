@@ -1,6 +1,12 @@
 import * as React from "react";
 
-export const Footer = () => {
+export type FooterProps = {
+  twitter: string;
+  github: string;
+  linkedin: string;
+};
+
+export const Footer: React.FC<FooterProps> = (props) => {
   return (
     <footer className="mt-20 pt-12 text-center dark:border-gray-800 border-t-2 flex flex-col md:flex-row">
       <section className="flex-1 dark:text-gray-300 p-4 rounded-lg">
@@ -14,7 +20,7 @@ export const Footer = () => {
       <section className="flex-1 flex flex-col items-center dark:text-gray-300 p-4 rounded-lg">
         <p>My profile on other platforms</p>
         <div className="flex justify-between w-40 pt-2 text-gray-400">
-          <a href="https://www.twitter.com/raqystyle" target="_black">
+          <a href={`https://www.twitter.com/${props.twitter}`} target="_black">
             <svg
               className="m-1 fill-current"
               role="img"
@@ -28,7 +34,7 @@ export const Footer = () => {
             </svg>
           </a>
 
-          <a href="https://www.github.com/raqystyle" target="_black">
+          <a href={`https://www.github.com/${props.github}`} target="_black">
             <svg
               className="m-1 fill-current"
               role="img"
@@ -42,7 +48,10 @@ export const Footer = () => {
             </svg>
           </a>
 
-          <a href="https://www.linkedin.com/in/ivandemchenko" target="_black">
+          <a
+            href={`https://www.linkedin.com/in/${props.linkedin}`}
+            target="_black"
+          >
             <svg
               className="m-1 fill-current"
               role="img"

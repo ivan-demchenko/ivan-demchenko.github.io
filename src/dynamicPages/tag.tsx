@@ -18,6 +18,7 @@ export default function TagPage(
   };
   return (
     <PageLayout
+      social={site.siteMetadata.social}
       activeLinkUrl="/blog"
       metadata={metadata}
       header={
@@ -51,6 +52,8 @@ export const pageQuery = graphql`
         siteUrl
         social {
           twitter
+          github
+          linkedin
         }
       }
     }

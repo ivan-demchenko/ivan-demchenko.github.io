@@ -15,6 +15,7 @@ export default function IndexPage({ data }: PageProps<SiteQueryResult>) {
   };
   return (
     <PageLayout
+      social={site.siteMetadata.social}
       activeLinkUrl="/about"
       metadata={metadata}
       header={<WelcomeBanner />}
@@ -32,6 +33,8 @@ export const pageQuery = graphql`
         siteUrl
         social {
           twitter
+          github
+          linkedin
         }
       }
     }

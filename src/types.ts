@@ -18,6 +18,8 @@ export type SiteQueryResult = {
       siteUrl: string;
       social: {
         twitter: string;
+        github: string;
+        linkedin: string;
       };
     };
   };

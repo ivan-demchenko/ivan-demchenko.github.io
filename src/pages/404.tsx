@@ -15,6 +15,7 @@ export default function NotFoundPage({ data }: PageProps<SiteQueryResult>) {
 
   return (
     <PageLayout
+      social={site.siteMetadata.social}
       activeLinkUrl="/404"
       metadata={metadata}
       header={
@@ -37,6 +38,8 @@ export const pageQuery = graphql`
         siteUrl
         social {
           twitter
+          github
+          linkedin
         }
       }
     }

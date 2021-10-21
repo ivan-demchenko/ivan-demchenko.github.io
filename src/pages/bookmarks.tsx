@@ -14,6 +14,7 @@ export default function IndexPage({ data }: PageProps<SiteQueryResult>) {
   };
   return (
     <PageLayout
+      social={site.siteMetadata.social}
       activeLinkUrl="/bookmarks"
       metadata={metadata}
       header={<h1 className="text-4xl font-bold py-10">Bookmarks</h1>}
@@ -29,6 +30,8 @@ export const pageQuery = graphql`
         siteUrl
         social {
           twitter
+          github
+          linkedin
         }
       }
     }
