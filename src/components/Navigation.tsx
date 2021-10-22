@@ -17,7 +17,7 @@ export type NavigationProps = {
 export const Navigation: React.FC<NavigationProps> = ({ activeLinkUrl }) => {
   return (
     <nav className="font-bold py-4 border-gray-200 dark:border-gray-800 border-b-2">
-      <ul className="flex justify-between max-w-md">
+      <div className="flex justify-between max-w-md">
         {LINKS.map((link) => (
           <Link
             key={link.url}
@@ -29,7 +29,7 @@ export const Navigation: React.FC<NavigationProps> = ({ activeLinkUrl }) => {
             {link.name}
           </Link>
         ))}
-      </ul>
+      </div>
     </nav>
   );
 };
