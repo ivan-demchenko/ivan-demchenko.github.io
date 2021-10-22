@@ -12,7 +12,7 @@ export const WelcomeBanner = () => {
         </figcaption>
         <span
           role="image"
-          className="portrait h-96 w-96 block bg-contain bg-no-repeat"
+          className="portrait h-80 w-80 block bg-contain bg-no-repeat"
         />
       </figure>
     </header>

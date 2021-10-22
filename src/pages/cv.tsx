@@ -19,7 +19,19 @@ export default function CVPage({ data }: PageProps<SiteQueryResult>) {
       metadata={metadata}
       header={<h1 className="text-4xl font-bold py-10">CV</h1>}
     >
-      I did this and that...
+      <section className="prose prose-lg dark:prose-dark mb-8">
+        <p>
+          This page is in work-in-progress state. However, for the time being,
+          feel free to checkout my{" "}
+          <a
+            href={`https://www.linkedin.com/in/${site.siteMetadata.social.linkedin}`}
+            target="_black"
+          >
+            LinkedIn
+          </a>{" "}
+          profile.
+        </p>
+      </section>
     </PageLayout>
   );
 }
