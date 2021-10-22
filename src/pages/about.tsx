@@ -102,9 +102,9 @@ export default function IndexPage({ data }: PageProps<SiteQueryResult>) {
             TailwindCSS
           </a>
           . I tried Gatsby some time ago, but, for the reason I don't remember
-          already, it didn't clicked. I have to admit, the experience is great.
-          The set-up was very intuitive, the ecosystem of plugins is mature. I
-          should probably write a blog post about it...
+          already, it didn't click. This time around, however, I have to admit,
+          the experience has been great. The set-up was very intuitive, the
+          ecosystem of plugins is mature. I should probably write a blog post about it...
         </p>
       </section>
     </PageLayout>
