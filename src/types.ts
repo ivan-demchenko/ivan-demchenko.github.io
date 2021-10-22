@@ -66,3 +66,20 @@ export type PostQueryResult = {
     };
   };
 };
+
+export type PocketItemRecord = {
+  id: string;
+  title: string;
+  url: string;
+  excerpt: string;
+  has_image?: boolean;
+  image?: {
+    src: string;
+  };
+};
+
+export type PocketQueryResult = {
+  pocket: {
+    items: PocketItemRecord[];
+  };
+};

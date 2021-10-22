@@ -1,12 +1,13 @@
 import * as React from "react";
 import { graphql, Link, PageProps } from "gatsby";
 import { PostLayout } from "../components/PostLayout";
-import { PostQueryResult, SiteQueryResult } from "../types";
+import { PocketQueryResult, PostQueryResult, SiteQueryResult } from "../types";
 import { PostTag } from "../components/PostTag";
+import { PocketItem } from "../components/PocketItem";
 
 export default function BlogPost({
   data,
-}: PageProps<SiteQueryResult & PostQueryResult & { pocket: any }>) {
+}: PageProps<SiteQueryResult & PostQueryResult & PocketQueryResult>) {
   const { site, post, pocket } = data;
   const metadata = {
     description: post.excerpt,
@@ -46,7 +47,7 @@ export default function BlogPost({
       <aside className="my-12">
         <Link to="/blog">&larr; Back to other posts</Link>
       </aside>
-      {pocket.nodes.length > 0 && (
+      {pocket.items.length > 0 && (
         <>
           <h4 className="text-4xl pb-10 flex items-baseline">
             Related items from my Pocket
@@ -63,18 +64,8 @@ export default function BlogPost({
             </svg>
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {pocket.nodes.map((article: any) => (
-              <a
-                key={article.id}
-                href={article.url}
-                target="_blank"
-                className="m-4 p-4 border-2 dark:border-gray-800 dark:hover:border-blue-800 dark:hover:bg-gray-900 rounded-2xl transition-colors"
-              >
-                <strong className="font-bold mb-2 text-blue-300">
-                  {article.title}
-                </strong>
-                <p>{article.excerpt}</p>
-              </a>
+            {pocket.items.map((item) => (
+              <PocketItem key={item.id} item={item} />
             ))}
           </div>
         </>
@@ -110,7 +101,7 @@ export const pageQuery = graphql`
     }
     pocket: allPocketArticle(limit: 10, filter: { tags: { in: $tags } }) {
       distinct(field: url)
-      nodes {
+      items: nodes {
         id
         title
         url

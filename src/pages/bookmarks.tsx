@@ -1,11 +1,12 @@
 import * as React from "react";
 import { graphql, PageProps } from "gatsby";
 import { PageLayout } from "../components/PageLayout";
-import { SiteQueryResult } from "../types";
+import { PocketQueryResult, SiteQueryResult } from "../types";
+import { PocketItem } from "../components/PocketItem";
 
 export default function IndexPage({
   data,
-}: PageProps<SiteQueryResult & { pocket: any }>) {
+}: PageProps<SiteQueryResult & PocketQueryResult>) {
   const { site, pocket } = data;
   const metadata = {
     description: "Ivan's blog",
@@ -128,29 +129,9 @@ export default function IndexPage({
           </svg>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {pocket.nodes.map((node: any) => {
-            return (
-              <a
-                key={node.id}
-                href={node.url}
-                target="_blank"
-                className="m-4 p-4 border-2 dark:border-gray-800 dark:hover:border-blue-800 dark:hover:bg-gray-900 rounded-2xl transition-colors"
-              >
-                {node.has_image && (
-                  <img
-                    src={node.image.src}
-                    title={node.title}
-                    alt={node.title}
-                    className="mb-2"
-                  />
-                )}
-                <span className="font-bold mb-2 text-blue-300">
-                  {node.title}
-                </span>
-                <p>{node.excerpt}</p>
-              </a>
-            );
-          })}
+          {pocket.items.map((item) => (
+            <PocketItem key={item.id} item={item} />
+          ))}
         </div>
       </section>
     </PageLayout>
@@ -175,7 +156,7 @@ export const pageQuery = graphql`
       sort: { fields: [time_added], order: DESC }
     ) {
       distinct(field: url)
-      nodes {
+      items: nodes {
         id
         title
         url
