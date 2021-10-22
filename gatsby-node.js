@@ -18,26 +18,28 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 async function createBlogPages(graphql, createPage) {
   const { data } = await graphql(`
     query {
-      allMarkdownRemark {
-        edges {
-          node {
-            fields {
-              slug
-            }
+      blog: allMarkdownRemark {
+        posts: nodes {
+          frontmatter {
+            tags
+          }
+          fields {
+            slug
           }
         }
       }
     }
   `);
 
-  const posts = data.allMarkdownRemark.edges;
+  const { posts } = data.blog;
 
-  posts.forEach(({ node }) => {
-    const { slug } = node.fields;
+  posts.forEach((post) => {
+    const { slug } = post.fields;
+    const { tags } = post.frontmatter;
     createPage({
       path: slug,
       component: path.resolve("./src/dynamicPages/blog-post.tsx"),
-      context: { slug },
+      context: { slug, tags },
     });
   });
 }
