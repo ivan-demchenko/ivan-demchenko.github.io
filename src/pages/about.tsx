@@ -4,10 +4,8 @@ import { PageLayout } from "../components/PageLayout";
 import { WelcomeBanner } from "../components/WelcomeBanner";
 import { SiteQueryResult } from "../types";
 
-export default function IndexPage({
-  data,
-}: PageProps<SiteQueryResult & { pocket: any }>) {
-  const { site, pocket } = data;
+export default function IndexPage({ data }: PageProps<SiteQueryResult>) {
+  const { site } = data;
   const metadata = {
     description: "Ivan's blog",
     image: "none",
@@ -109,27 +107,6 @@ export default function IndexPage({
           should probably write a blog post about it...
         </p>
       </section>
-      <section className="mb-10">
-        <h2 className="text-4xl pb-10">Articles in my Pocket</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {pocket.nodes.map((node: any) => {
-            return (
-              node.title && (
-                <a
-                  href={node.url}
-                  target="_blank"
-                  className="m-4 p-4 dark:border-gray-800 border-2 rounded-md hover:border-blue-800"
-                >
-                  <span className="font-bold mb-2 text-blue-300">
-                    {node.title}
-                  </span>
-                  <p>{node.excerpt}</p>
-                </a>
-              )
-            );
-          })}
-        </div>
-      </section>
     </PageLayout>
   );
 }
@@ -145,17 +122,6 @@ export const pageQuery = graphql`
           github
           linkedin
         }
-      }
-    }
-    pocket: allPocketArticle(
-      limit: 10
-      filter: { url: { ne: null } }
-      sort: { fields: [time_added], order: DESC }
-    ) {
-      nodes {
-        title
-        url
-        excerpt
       }
     }
   }
