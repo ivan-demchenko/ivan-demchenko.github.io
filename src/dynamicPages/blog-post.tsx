@@ -4,6 +4,7 @@ import { PostLayout } from "../components/PostLayout";
 import { PocketQueryResult, PostQueryResult, SiteQueryResult } from "../types";
 import { PostTag } from "../components/PostTag";
 import { PocketItem } from "../components/PocketItem";
+import { PostHeader } from "../components/PostHeader";
 
 export default function BlogPost({
   data,
@@ -16,16 +17,13 @@ export default function BlogPost({
     twitter: site.siteMetadata.social.twitter,
     url: site.siteMetadata.siteUrl,
   };
+
   return (
     <PostLayout
       social={site.siteMetadata.social}
       activeLinkUrl="/blog"
       metadata={metadata}
-      header={
-        <div className="bg-gradient-to-br dark:from-gray-800 dark:to-black from-gray-100 to-white py-16">
-          <h1 className="text-4xl font-bold">{post.frontmatter.title}</h1>
-        </div>
-      }
+      header={<PostHeader post={post} />}
     >
       <aside className="text-sm py-10 italic">
         <p>Posted on {post.frontmatter.date}.</p>
@@ -97,6 +95,17 @@ export const pageQuery = graphql`
         tags
         title
         date(formatString: "DD MMMM YYYY")
+        image {
+          childImageSharp {
+            gatsbyImageData(
+              placeholder: DOMINANT_COLOR
+              formats: [AUTO]
+              layout: FULL_WIDTH
+              aspectRatio: 2
+            )
+          }
+        }
+        imageCredits
       }
     }
     pocket: allPocketArticle(limit: 10, filter: { tags: { in: $tags } }) {

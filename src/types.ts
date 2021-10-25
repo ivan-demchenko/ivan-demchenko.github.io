@@ -1,3 +1,5 @@
+import { ImageDataLike } from "gatsby-plugin-image";
+
 export type Metadata = {
   title: string;
   description: string;
@@ -63,6 +65,12 @@ export type PostQueryResult = {
       tags: string[];
       title: string;
       date: string;
+      image?: {
+        childImageSharp: {
+          gatsbyImageData: ImageDataLike;
+        };
+      };
+      imageCredits?: string;
     };
   };
 };

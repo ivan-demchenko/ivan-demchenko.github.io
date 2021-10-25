@@ -11,31 +11,32 @@ module.exports = {
     },
   },
   plugins: [
+    "gatsby-plugin-image",
     {
-      resolve: `gatsby-source-pocket`,
+      resolve: "gatsby-source-pocket",
       options: {
         consumerKey: process.env.POCKET_CONSUMER_KEY,
         accessToken: process.env.POCKET_ACCESS_TOKEN,
         weeksOfHistory: 52,
         apiMaxRecordsToReturn: 100,
-        getCurrentWeekOnly: `n`,
+        getCurrentWeekOnly: "n",
         tagFilter: true,
         tagFilterString: "for-website",
       },
     },
-    `gatsby-plugin-sharp`,
+    "gatsby-plugin-sharp",
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-prismjs`,
+            resolve: "gatsby-remark-prismjs",
             options: {
               noInlineHighlight: true,
             },
           },
           {
-            resolve: `gatsby-remark-images`,
+            resolve: "gatsby-remark-images",
             options: {
               backgroundColor: "transparent",
               maxWidth: 590,
@@ -45,7 +46,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-postcss`,
+      resolve: "gatsby-plugin-postcss",
       options: {
         cssLoaderOptions: {
           exportLocalsConvention: false,
@@ -61,6 +62,7 @@ module.exports = {
     },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
+    "gatsby-transformer-sharp",
     {
       resolve: "gatsby-plugin-manifest",
       options: {

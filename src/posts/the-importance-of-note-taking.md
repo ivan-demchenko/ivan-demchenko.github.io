@@ -2,6 +2,8 @@
 title: Consider note-taking, you won't regret
 date: 2021-10-24
 tags: ["note-taking"]
+image: "./the-importance-of-note-taking/main.jpg"
+imageCredits: 'Photo by <a href="https://unsplash.com/@cathrynlavery?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Cathryn Lavery</a> on <a href="https://unsplash.com/s/photos/notes?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>'
 ---
 TL;DR: keep track of your thoughts and ideas.
 
@@ -17,7 +19,9 @@ Losing such ideas would be a shame. You can always come back to a book or a vide
 
 Recently I discovered a great community around the idea of building a "second brain". This idea fascinates me as the main mantra here is that our brains are not for storing information. One of the methods to organise one's thoughts is [Zettelkasten](https://zettelkasten.de/posts/overview/), which has a great history worth reading.
 
-There are multiple tools and methodologies to build that second brain. I use Obsidian for this matter, which is flexible enough to accommodate different types of workflows. I record my ideas and mark them accordingly. There's an abundance of videos on YouTube about this software. After a while, you end up with a graph of thoughts.
+There are multiple tools and methodologies to build that second brain. I use Obsidian for this matter, which is flexible enough to accommodate different types of workflows. I record my ideas and mark them accordingly. There's an abundance of videos on YouTube about this software. After a while, you end up with a graph of thoughts. Here's the example from the [Obsidian documentation](https://help.obsidian.md/Plugins/Graph+view):
+
+![Obsidian graph view, a picture from the official documentation](https://publish-01.obsidian.md/access/163a683f841213def6dfc3ea9c19c786/Attachments/Pasted%20image%2010.png)
 
 ## Better late than never
 

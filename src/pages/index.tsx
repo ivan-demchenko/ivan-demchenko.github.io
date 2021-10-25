@@ -9,6 +9,7 @@ import {
   BlogPostsQueryResult,
   TagsQueryResult,
 } from "../types";
+import { getTimeOfTheDay, currHours } from "../utils";
 import { PostTag } from "../components/PostTag";
 
 export default function IndexPage({
@@ -28,7 +29,7 @@ export default function IndexPage({
     <PageLayout
       social={site.siteMetadata.social}
       metadata={metadata}
-      header={<Greeting />}
+      header={<Greeting salutation={getTimeOfTheDay(currHours())} />}
       activeLinkUrl="/"
     >
       <h2 className="text-4xl pb-10">Recent blog posts</h2>
@@ -75,7 +76,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    blog: allMarkdownRemark(limit: 3, sort: {fields: frontmatter___date, order: DESC}) {
+    blog: allMarkdownRemark(
+      limit: 3
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
       posts: nodes {
         id
         excerpt
