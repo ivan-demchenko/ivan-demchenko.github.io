@@ -46,3 +46,7 @@ body {
 .welcomeBanner__text {
   @apply bg-clip-text text-transparent;
 }
+
+.gatsby-highlight-code-line {
+  @apply bg-yellow-300 bg-opacity-20 block
+}
