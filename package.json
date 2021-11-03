@@ -5,9 +5,9 @@
   "description": "My personal website and blog",
   "author": "Ivan Demchenko",
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
+    "develop": "NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"

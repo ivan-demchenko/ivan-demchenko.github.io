@@ -13,7 +13,7 @@ module.exports = {
   plugins: [
     "gatsby-plugin-image",
     {
-      resolve: "gatsby-source-pocket",
+      resolve: "gatsby-source-pocket",  
       options: {
         consumerKey: process.env.POCKET_CONSUMER_KEY,
         accessToken: process.env.POCKET_ACCESS_TOKEN,
@@ -66,16 +66,21 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
+        name: "Ivan Demchenko's blog",
+        short_name: "Ivan Demchenko",
+        description: "This is a personal website of Ivan Demchenko",
+        lang: "en",
+        start_url: `/`,
         icon: "src/images/icon.png",
       },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "posts",
-        path: "./src/posts/",
+        name: "blog",
+        path: "./blog/",
       },
-      __key: "posts",
+      __key: "blog",
     },
     {
       resolve: "gatsby-source-filesystem",
