@@ -1,6 +1,7 @@
 import * as React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { PostQueryResult } from "../types";
+import * as PostHeaderCSS from "./PostHeader.module.css";
 
 export type PostHeaderProps = Pick<PostQueryResult, "post">;
 
@@ -12,34 +13,28 @@ const PostHeaderWithImage: React.FC<PostHeaderProps["post"]["frontmatter"]> = ({
   let finalImage = getImage(image!.childImageSharp.gatsbyImageData)!;
 
   return (
-    <div className="grid grid-cols-1 grid-rows-4 h-64 lg:h-auto">
+    <div className={PostHeaderCSS.imgWrapper}>
       <GatsbyImage
-        className="col-start-1 row-start-1 row-span-4"
+        className={PostHeaderCSS.imgPic}
         image={finalImage}
         alt={title}
       />
-      <div className="bg-gradient-to-b from-transparent to-white dark:to-black z-10 col-start-1 row-start-1 row-span-4" />
-      <div className="col-start-1 col-span-1 row-start-4 self-end row-span-1 z-20">
-        {children}
-      </div>
+      <div className={PostHeaderCSS.imgOvercast} />
+      <div className={PostHeaderCSS.imgText}>{children}</div>
     </div>
   );
 };
 
 const PostHeaderWithoutImage: React.FC = ({ children }) => {
-  return (
-    <div className="px-2 py-12 lg:py-16 bg-gradient-to-br from-gray-200 to-white dark:from-gray-900 dark:to-black">
-      <div className="z-10">{children}</div>
-    </div>
-  );
+  return <div className={PostHeaderCSS.noimgWrapper}>{children}</div>;
 };
 
 const PostHeaderText: React.FC<PostHeaderProps> = ({ post }) => (
   <>
-    <h1 className="text-4xl font-bold">{post.frontmatter.title}</h1>
+    <h1 className={PostHeaderCSS.textHeading}>{post.frontmatter.title}</h1>
     {post.frontmatter.imageCredits && (
       <span
-        className="italic"
+        className={PostHeaderCSS.textPicCredit}
         dangerouslySetInnerHTML={{
           __html: post.frontmatter.imageCredits,
         }}

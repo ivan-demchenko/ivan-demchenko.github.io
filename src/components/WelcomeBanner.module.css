@@ -1,0 +1,29 @@
+.wrapper {
+  @apply h-5/6 flex items-center justify-center dark:bg-black;
+}
+
+.pic {
+  @apply flex flex-col;
+}
+
+.picCaption {
+  @apply dark:text-gray-300 text-gray-800 text-center my-12;
+}
+
+.picCaptionHeadline {
+  @apply text-6xl font-extralight;
+}
+
+.picCaptionSubheader {
+  @apply font-serif text-xl italic;
+}
+
+.portrait {
+  @apply h-80 w-80 block bg-contain bg-no-repeat;
+  background-image: url("../images/me-light.png");
+}
+@media (prefers-color-scheme: dark) {
+  .portrait {
+    background-image: url("../images/me-dark.png");
+  }
+}

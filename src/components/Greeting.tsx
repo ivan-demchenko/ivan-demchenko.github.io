@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as GreetingCSS from "./Greeting.module.css";
 
 export type GreetingsProps = {
   salutation: string;
@@ -6,14 +7,14 @@ export type GreetingsProps = {
 
 export const Greeting: React.FC<GreetingsProps> = ({ salutation }) => {
   return (
-    <div className="text-center py-16 md:py-20">
-      <h1 className="welcomeBanner__textWrapper">
-        <span className="welcomeBanner__text">Good {salutation}!</span>
+    <div className={GreetingCSS.wrapper}>
+      <h1 className={GreetingCSS.welcomeTextWrapper}>
+        <span className={GreetingCSS.welcomeText}>Good {salutation}!</span>
       </h1>
-      <p className="text-xl font-serif italic">
+      <p className={GreetingCSS.tagLine}>
         Welcome to my personal corner of the Internet!
       </p>
-      <p className="text-xl font-serif italic">
+      <p className={GreetingCSS.tagLine}>
         I share my thoughts here and experiment with tech.
       </p>
     </div>

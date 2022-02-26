@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -15,38 +16,6 @@ body {
   @apply dark:bg-black dark:text-gray-300;
 }
 
-.divider {
-  @apply flex items-center justify-center
-}
-.divider::before,
-.divider::after,
-.divider i {
-  content: "";
-  @apply w-2 h-2 block bg-gray-400 dark:bg-gray-600 rounded-full mx-4
-}
-
-.portrait {
-  background-image: url('../images/me-light.png');
-}
-@media (prefers-color-scheme: dark) {
-  .portrait {
-    background-image: url('../images/me-dark.png');
-  }
-}
-
-.welcomeBanner__text {
-  @apply bg-cover bg-center;
-  background-image: url('../images/beach-pic.jpg');
-}
-
-.welcomeBanner__textWrapper {
-  @apply font-extrabold text-7xl md:text-8xl mb-4 tracking-tight;
-}
-
-.welcomeBanner__text {
-  @apply bg-clip-text text-transparent;
-}
-
 .gatsby-highlight-code-line {
-  @apply bg-yellow-300 bg-opacity-20 block
+  @apply bg-yellow-300 bg-opacity-20 block;
 }

@@ -1,0 +1,17 @@
+.wrapper {
+  @apply mb-8 pb-8 dark:border-gray-900;
+}
+
+.publishingDateTime {
+  @apply text-sm text-gray-400 italic;
+}
+
+.divider {
+  @apply flex items-center justify-center mt-8;
+}
+.divider::before,
+.divider::after,
+.divider i {
+  content: "";
+  @apply w-2 h-2 block bg-gray-400 dark:bg-gray-600 rounded-full mx-4;
+}

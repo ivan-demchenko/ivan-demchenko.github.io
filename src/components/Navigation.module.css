@@ -1,0 +1,15 @@
+.wrapper {
+  @apply font-bold py-4 border-gray-200 dark:border-gray-800 border-b-2;
+}
+
+.bar {
+  @apply flex justify-between max-w-md;
+}
+
+.link {
+  @apply hover:text-blue-400;
+}
+
+.linkActive {
+  @apply underline;
+}

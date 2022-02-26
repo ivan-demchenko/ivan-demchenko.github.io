@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link } from "gatsby";
 import cx from "classnames";
+import * as NavigationCSS from "./Navigation.module.css";
 
 const LINKS = [
   { name: "Home", url: "/" },
@@ -16,14 +17,14 @@ export type NavigationProps = {
 
 export const Navigation: React.FC<NavigationProps> = ({ activeLinkUrl }) => {
   return (
-    <nav className="font-bold py-4 border-gray-200 dark:border-gray-800 border-b-2">
-      <div className="flex justify-between max-w-md">
+    <nav className={NavigationCSS.wrapper}>
+      <div className={NavigationCSS.bar}>
         {LINKS.map((link) => (
           <Link
             key={link.url}
             to={link.url}
-            className={cx("hover:text-blue-400", {
-              underline: activeLinkUrl === link.url,
+            className={cx(NavigationCSS.link, {
+              [NavigationCSS.linkActive]: activeLinkUrl === link.url,
             })}
           >
             {link.name}

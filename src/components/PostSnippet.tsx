@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Link } from "gatsby";
+import * as PostSnippetCSS from "./PostSnippet.module.css";
 
 export type BlogSnippetProps = {
   date: string;
@@ -10,15 +11,15 @@ export type BlogSnippetProps = {
 
 export const BlogSnippet: React.FC<BlogSnippetProps> = (props) => {
   return (
-    <div className="mb-8 pb-8 dark:border-gray-900">
+    <div className={PostSnippetCSS.wrapper}>
       <h3>
         <Link to={props.slug}>{props.title}</Link>
       </h3>
       <p>{props.excerpt}</p>
-      <time dateTime={props.date} className="text-s text-gray-400 italic">
+      <time dateTime={props.date} className={PostSnippetCSS.publishingDateTime}>
         Published on the {props.date}
       </time>
-      <div className="divider mt-8">
+      <div className={PostSnippetCSS.divider}>
         <i />
       </div>
     </div>

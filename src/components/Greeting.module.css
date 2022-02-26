@@ -1,0 +1,16 @@
+.wrapper {
+  @apply text-center py-16 md:py-20;
+}
+
+.welcomeTextWrapper {
+  @apply font-extrabold text-7xl md:text-8xl mb-4 tracking-tight;
+}
+
+.welcomeText {
+  @apply bg-clip-text text-transparent bg-cover bg-center;
+  background-image: url("../images/beach-pic.jpg");
+}
+
+.tagLine {
+  @apply text-xl font-serif italic;
+}

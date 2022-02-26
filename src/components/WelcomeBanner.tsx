@@ -1,19 +1,17 @@
 import * as React from "react";
+import * as css from "./WelcomeBanner.module.css";
 
 export const WelcomeBanner = () => {
   return (
-    <header className="h-5/6 flex items-center justify-center dark:bg-black">
-      <figure className="flex flex-col">
-        <figcaption className="dark:text-gray-300 text-gray-800 text-center my-12">
-          <h1 className="text-6xl font-extralight">Ivan Demchenko</h1>
-          <p className="font-serif text-xl italic pt-">
+    <header className={css.wrapper}>
+      <figure className={css.pic}>
+        <figcaption className={css.picCaption}>
+          <h1 className={css.picCaptionHeadline}>Ivan Demchenko</h1>
+          <p className={css.picCaptionSubheader}>
             Software engineering enthusiast
           </p>
         </figcaption>
-        <span
-          role="image"
-          className="portrait h-80 w-80 block bg-contain bg-no-repeat"
-        />
+        <span role="image" className={css.portrait} />
       </figure>
     </header>
   );
