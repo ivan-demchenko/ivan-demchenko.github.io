@@ -1,6 +1,9 @@
 name: Build and Deploy my blog
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   deployment:
@@ -8,6 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Create env file
+        run: |
+          touch .env
+          echo POCKET_CONSUMER_KEY=${{ secrets.POCKET_CONSUMER_KEY }} >> .env
+          echo POCKET_ACCESS_TOKEN=${{ secrets.POCKET_ACCESS_TOKEN }} >> .env
       - uses: enriikke/gatsby-gh-pages-action@v2
         with:
           deploy-branch: master
