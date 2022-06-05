@@ -3,7 +3,8 @@ name: Build and Deploy my blog
 on: [push]
 
 jobs:
-  build:
+  deployment:
+    environment: github-pages
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
