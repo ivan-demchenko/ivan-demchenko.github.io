@@ -1,0 +1,43 @@
+baseURL: http://raqystyle.github.io/
+languageCode: "en-us"
+title: Ivan's blog
+theme: PaperMod
+
+params:
+  ShowReadingTime: true
+  editPost:
+    URL: "https://github.com/raqystyle/raqystyle.github.io/content"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
+  homeInfoParams:
+    Title: Welcome to my website!
+    Content: My name is Ivan Demchenko. I am a software engineer, currently working at Postman. I use this space to experiment with tech and share my learnings along the way.
+
+  socialIcons:
+    - name: LinkedIn
+      url: https://www.linkedin.com/in/ivandemchenko/
+    - name: Twitter
+      url: https://twitter.com
+    - name: GitHub
+      url: https://github.com
+
+taxonomies:
+  tag: tags
+
+menu:
+  main:
+    - name: Blog
+      url: /blog/
+      weight: 1
+    - name: About
+      url: /about/
+      weight: 2
+    - name: Tags
+      url: /tags/
+      weight: 3
+    - name: Bookmarks
+      url: /bookmarks/
+      weight: 4
+    - name: CV
+      url: /cv/
+      weight: 5
