@@ -21,6 +21,15 @@ params:
     - name: GitHub
       url: https://github.com
 
+  assets:
+    # disableHLJS: true # to disable highlight.js
+    # disableFingerprinting: true
+    favicon: "static/icon.png"
+    favicon16x16: "static/icon16.png"
+    favicon32x32: "static/icon32.png"
+    apple_touch_icon: "static/icon.png"
+    safari_pinned_tab: "static/icon.png"
+
 taxonomies:
   tag: tags
 
