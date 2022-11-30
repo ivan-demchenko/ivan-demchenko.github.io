@@ -16,7 +16,7 @@ In JS files, we mark dependencies by `import`-ing or `require`-ing them. Package
 
 Consider a typical app:
 
-![Typical structure of a React application](./ui-lib-monorepo-p2/c1p1.png)
+![Typical structure of a React application](./c1p1.png)
 
 Basically, it is a directed graph of dependencies between components. This is our mental model - JS files that reference each other. And it works well as each of those app-specific components import their CSS file and a bundler takes care of reducing all this to 2-3 files.
 
@@ -39,69 +39,69 @@ Therefore, we decided to introduce such dependency declarations in CSS files as 
 
 This way, we get the full picture, like shown on this diagram:
 
-![Dependencies between components](./ui-lib-monorepo-p2/c1p2.png)
+![Dependencies between components](./c1p2.png)
 
-## Let’s test it.
+## Let’s test it
 
 Let's make our Button’s Sass file include the dependency:
 
-![Button includes the CSS of Icon as a dependency](./ui-lib-monorepo-p2/c1p3.png)
+![Button includes the CSS of Icon as a dependency](./c1p3.png)
 
 just as we do in the TS file:
 
-![Button includes JS of Icon as a dependency](./ui-lib-monorepo-p2/c1p4.png)
+![Button includes JS of Icon as a dependency](./c1p4.png)
 
 The resulting build looks like this:
 
-![Resulting CSS of Button](./ui-lib-monorepo-p2/c1p5.png)
+![Resulting CSS of Button](./c1p5.png)
 
 At this moment, we have the Button at version 3.0.0, which depends on the Icon at version 2.0.6.
 
 Great. Now, let’s go back to our App and install the Button package. We used `yalc` for the local experiments as it replicated the whole release-publish-install cycle:
 
-![Importing local dependency using yalc](./ui-lib-monorepo-p2/c1p6.png)
+![Importing local dependency using yalc](./c1p6.png)
 
 Now let's use the Button in our App. This the `app.tsx`:
 
-![Using Button component in the App](./ui-lib-monorepo-p2/c1p7.png)
+![Using Button component in the App](./c1p7.png)
 
 In our App we have a special file where we `@include` the CSS of our components.
 
-![Importing Button CSS in App CSS](./ui-lib-monorepo-p2/c1p8.png)
+![Importing Button CSS in App CSS](./c1p8.png)
 
 When we built it, we got the following results:
 
-![The result of a build](./ui-lib-monorepo-p2/c1p9.png)
+![The result of a build](./c1p9.png)
 
 Notice that because there was an `@import` in the Button's CSS, Icon’s CSS was included as well, thanks to `css-loader`.
 
 However, what if our App already had Icon as a dependency? Let’s simulate this and install the Icon package of version, say, 2.0.1:
 
-![App depends on Button and Icon](./ui-lib-monorepo-p2/c1p10.png)
+![App depends on Button and Icon](./c1p10.png)
 
 To summarise, the Button v3.0.0 depends on the Icon v2.0.6, our App depends on Icon v2.0.1 and the Button v3.0.0: Our dependency tree will look like this:
 
-![File structure of dependencies](./ui-lib-monorepo-p2/c1p11.png)
+![File structure of dependencies](./c1p11.png)
 
 _Note: `button` package now has its `node_modules` with `icon` package._
 
 We’ll include it in source files, `app.tsx`:
 
-![App uses Icon and Button in JS](./ui-lib-monorepo-p2/c1p12.png)
+![App uses Icon and Button in JS](./c1p12.png)
 
 as well as in the `highlight-ui.scss`:
 
-![Include Icon CSS in App CSS](./ui-lib-monorepo-p2/c1p13.png)
+![Include Icon CSS in App CSS](./c1p13.png)
 
 Let’s build it now and see what happens:
 
-![The final CSS contains two versions on Icon and Button](./ui-lib-monorepo-p2/c1p14.png)
+![The final CSS contains two versions on Icon and Button](./c1p14.png)
 
 Okay, both versions are there!
 
 However, what about JS? In JS we also reference CSS classes. Well, in the browser everything works as expected as well. This is the screenshot of Chrome DevTools:
 
-![In DevTools one can see different versions of Icon](./ui-lib-monorepo-p2/c1p15.png)
+![In DevTools one can see different versions of Icon](./c1p15.png)
 
 How cool is that to have all these dependenceis visible here!
 

@@ -16,7 +16,7 @@ In my experience, design systems always come after the main Product. Let me expl
 
 As the Product (and the company) grows, more people join the company and form more teams to ship more features. Communication effort grows despite the great tooling in place. Tools are tools - they don't bring the order. Without a way to steer the development of the Product, the final result will naturally look very fragmented and disjoint. Not to mention the time (equals money) wasted on the re-implementation of existing pieces due to a lack of communication.
 
-![Growing organisation](./layered-cake-ds/p1.png)
+![Growing organisation](./p1.png)
 
 However, at some point in time, these problems become too big to be postponed. People in the organisation realise this and start systematising the workflows and solutions to common challenges. As a result, a Design System enters the game.
 
@@ -32,7 +32,7 @@ So, we're in a growing organisation. We have a mature yet ever-evolving Product.
 
 The word system implies structure. We need to organise our design system in a way that allows further improvements. What if we think about a design system as a collection of layers? I call this a Layered-Cake DS Architecture.
 
-![Simple layers](./layered-cake-ds/p2.png)
+![Simple layers](./p2.png)
 
 This picture exemplifies a generalised idea. In reality, every organisation needs to figure out their own set of layers.
 
@@ -60,7 +60,7 @@ Having this foundation laid out means it is time to observe and distil the commo
 
 The main idea of the layered cake architecture is that the previous layer help to keep the next one within the scope of the system. The Design Language and the Design Principles help to define tokens. Tokens help to build components (within and outside the design system). Components help to shape up patterns and so on. It is also worth noting that other teams might build their very local UI elements. But if they are categorised and based on the underlying layers, they fit in the Product naturally.
 
-![Everybody likes cakes](./layered-cake-ds/p3.png)
+![Everybody likes cakes](./p3.png)
 
 _Important side-note: the (in)completeness of a layer does not impede the work on the next layers. If you only have font tokens - great, use them in the layers above._
 
@@ -72,7 +72,7 @@ If there's an existing Design System, define a set of criteria for each layer:
 - How complete is the documentation for this layer?
 - How good is the implementation?
 
-![Everybody likes cakes](./layered-cake-ds/p4.png)
+![Everybody likes cakes](./p4.png)
 
 It's up to you to define these criteria. Maybe even compile a checklist for each layer. The result can even look like a roadmap. Now you can define steps to make every layer great, starting with the bottom one.
 

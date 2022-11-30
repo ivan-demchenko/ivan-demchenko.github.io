@@ -29,7 +29,7 @@ If we zoom out a bit, we'll see that the bigger the changeset, the greater the e
 
 One way to solve the problems I mentioned above is to break this monolith into pieces. Instead of a single NPM package that contains all the UI components, we deliver an NPM package per UI component:
 
-![Monolith turns into a set of packages](./ui-lib-monorepo-p1/p1.png)
+![Monolith turns into a set of packages](./p1.png)
 
 The tooling these days allows a great deal of automation. Therefore, the whole release and version management cycle can be completely automated. In our particular case, we used:
 
