@@ -27,7 +27,7 @@ Webpack is a mighty beast (to say the least). We decided to extend the resolutio
 
 As such, we needed to add fields with references to source files entry points:
 
-```json{9,10}
+```json {hl_lines=[9,10]}
 {
   "name": "@highlight-ui/button",
   "version": "8.0.1",
@@ -62,7 +62,7 @@ webpackFinal: async (config) => {
 
 Now we need to adapt the configuration for Sass files. Look, we can tweak the resolution process based on the test field ([more](https://webpack.js.org/configuration/module/#ruletest) and [more](https://github.com/webpack/webpack/blob/4837c3ddb9da8e676c73d97460e19689dd9d4691/test/configCases/resolve-merging/override/webpack.config.js)):
 
-```js{6}
+```js{hl_lines=[6]}
 {
   test: /\.s[ac]ss$/i,
   use: [ /* loaders */ ],
