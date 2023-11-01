@@ -8,7 +8,7 @@ tags:
   - Type systems
 ---
 
-Being a big proponent of TypeScript, I keep noticing that this language inherits all the flaws of JavaScript. However, it doesn't mean we have no choice.
+Being a big proponent of TypeScript, I keep noticing that this language inherits all the flaws of JavaScript. However, it does not mean we have no choice.
 
 ## The problem
 
@@ -42,7 +42,7 @@ function urlToString(urlRecord: UrlRecord): string {
 }
 ```
 
-It is somewhat of a subtle change and it's easy to overlook it during the code review. TypeScript was also okay with this change. This is because the corresponding JavaScript code will work just fine. The reason being the algorithm that governs [String interpolation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#string_interpolation).
+It is somewhat of a subtle change, and it is easy to overlook it during the code review. TypeScript was also okay with this change, because the corresponding JavaScript code will work just fine. The reason being the algorithm that governs [String interpolation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#string_interpolation).
 
 > Template literals [coerce their expressions directly to strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), while addition coerces its operands to primitives first.
 
@@ -68,7 +68,7 @@ TypeScript will correctly infer the type of `host`, but still won't bother about
 
 Although this example may not look very convincing in isolation, within a larger codebase, mistakes like this may easily slip through unnoticed. It's easy to imagine a scenario when this function is used by other people in your organisation with a false impression that TypeScript will somehow guarantee correctness. This is why, sometimes, you may see weird things such as `http://undefined/api/...` or `Price: $ NaN`.
 
-This example shows that because we rely on a JavaScript's feature here (string interpolation), we need to be mindfull of all possible edge cases and write all sort of unit tests, as if we didn't have any type system. In fact, this function is a perfect candidate for TDD.
+This example shows that because we rely on a JavaScript's feature here (string interpolation), we need to be mindful of all possible edge cases and write all sort of unit tests, as if we didn't have any type system. In fact, this function is a perfect candidate for TDD.
 
 We need to always keep in mind that TypeScript is a layer on top of JavaScript, with all its quirks and weirdness. Having a type system should help discover such bugs early.
 

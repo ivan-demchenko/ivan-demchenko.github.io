@@ -26,7 +26,12 @@
       },
 
       // Add the IDs of extensions you want installed when the container is created.
-      "extensions": ["bungcip.better-toml", "davidanson.vscode-markdownlint"]
+      "extensions": [
+		"bungcip.better-toml",
+		"davidanson.vscode-markdownlint",
+		"streetsidesoftware.code-spell-checker-australian-english",
+		"streetsidesoftware.code-spell-checker"
+	]
     }
   },
 
