@@ -1,6 +1,6 @@
 ---
-title: "My Elm if You Ask Me"
-date: 2022-08-31T13:33:54+02:00
+title: "Why Elm if You Ask Me"
+date: 2022-08-31
 draft: true
 ---
 
