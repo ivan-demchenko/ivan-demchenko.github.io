@@ -2,5 +2,6 @@
   "cSpell.language": "en-GB",
   "cSpell.words": [
     "ocaml"
-  ]
+  ],
+  "editor.fontFamily": "Sono, Menlo, Monaco, 'Courier New', monospace"
 }
