@@ -2,7 +2,7 @@
 
 Hi, I'm Ivan. I love building web apps and working with great people! I am Ukrainian, but currently, I reside in Germany; I also spent a few fantastic years with my family in Australia.
 
-You are very welcome to checkout my [LinkedIn](https://www.linkedin.com/in/ivandemchenko) and [GitHub](https://www.github.com/raqystyle) profiles.
+You are very welcome to checkout my [LinkedIn](https://www.linkedin.com/in/ivandemchenko) and [GitHub](https://www.github.com/ivan-demchenko) profiles.
 
 ### A bit of nostalgia
 
