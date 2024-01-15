@@ -11,15 +11,15 @@ params:
     appendFilePath: true # to append file path to Edit link
   homeInfoParams:
     Title: Welcome to my website!
-    Content: My name is Ivan Demchenko. I am a software engineer, currently working at Postman. I use this space to experiment with tech and share my learnings along the way.
+    Content: My name is Ivan Demchenko. I am a software engineer. I use this space to experiment with tech and share my learnings along the way.
 
   socialIcons:
     - name: LinkedIn
       url: https://www.linkedin.com/in/ivandemchenko/
-    - name: Twitter
-      url: https://twitter.com
     - name: GitHub
       url: https://github.com/ivan-demchenko
+    - name: YouTube
+      url: https://www.youtube.com/channel/UCGmXEOxGQqwgZQ57P4w4uvQ
 
   assets:
     # disableHLJS: true # to disable highlight.js

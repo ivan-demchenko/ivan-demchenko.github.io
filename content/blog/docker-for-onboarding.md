@@ -2,7 +2,7 @@
 title: Simplifying Onboarding with Docker
 date: "2023-05-08"
 tags:
-  - DX
+  - developer experience
 ---
 Onboarding new team members can be a time-consuming and complicated process, especially when it comes to ensuring they have the right software and tools to do their jobs.
 
