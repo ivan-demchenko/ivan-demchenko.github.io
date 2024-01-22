@@ -1,5 +1,7 @@
 # CV
 
+My CV is also available on [LinkedIn](https://www.linkedin.com/in/ivandemchenko/).
+
 ## Summary
 
 - Technical Lead, Developer and Architect with more than 10 years of professional experience taking end-

@@ -7,11 +7,12 @@ params:
   ShowReadingTime: true
   editPost:
     URL: "https://github.com/ivan-demchenko/ivan-demchenko.github.io"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+    Text: "Suggest Changes"
+    appendFilePath: true
   homeInfoParams:
     Title: Welcome to my website!
-    Content: My name is Ivan Demchenko. I am a software engineer. I use this space to experiment with tech and share my learnings along the way.
+    Content:
+      My name is Ivan Demchenko. I am a software engineer. I use this space to share observations, insights and ideas related to my professional experience. Feel free to check out my other accounts as well.
 
   socialIcons:
     - name: LinkedIn
