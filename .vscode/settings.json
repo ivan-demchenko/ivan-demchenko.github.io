@@ -7,5 +7,21 @@
     "Personio",
     "Sieben"
   ],
-  "editor.fontFamily": "Sono, Menlo, Monaco, 'Courier New', monospace"
+  "editor.fontFamily": "Sono, Menlo, Monaco, 'Courier New', monospace",
+  "[markdown]": {
+    "editor.fontSize": 20,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 80,
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    },
+    "cSpell.fixSpellingWithRenameProvider": true,
+    "cSpell.advanced.feature.useReferenceProviderWithRename": true,
+    "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/"
+  }
 }
