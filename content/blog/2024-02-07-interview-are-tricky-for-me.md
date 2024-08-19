@@ -13,7 +13,7 @@ Sometimes, I find it hard to come up with a good answer on the spot. During one 
 
 Maybe, that's something to introduce in day-to-day work? Something like Technology Review sessions? But this is a topic for another day.
 
-Anyway, after some interviews, I keep thinking about the questions and even talk about them to myself. Not every interview makes me reflect on my answers. But when it happens, it is a sign of a good interview. Most importantly, my recent one made me learn and discover the gaps in my knowledge. As I kept thinking about my answers, some details that I had missed bubbled up, and I came up with new arguments to support my ideas and realised where my understanding was lacking. It was a good interview, and I am grateful I had a chance to participate in it.
+Sometimes I keep thinking about the questions and even talk about them to myself. Not every interview makes me reflect on my answers. But when it happens, it is a sign of a good interview. Most importantly, my recent one made me learn and discover the gaps in my knowledge. As I kept thinking about my answers, some details that I had missed bubbled up, and I came up with new arguments to support my ideas and realised where my understanding was lacking. It was a good interview, and I am grateful I had a chance to participate in it.
 
 There must be that magical balance between letting a candidate know what topics to review and not giving any clues. On one hand, you don't want to list the questions you will ask - that's cheating. On the other hand, interviews are for testing the depth of a candidate's knowledge. There must be an optimal way to prepare a candidate for a conversation without revealing the exact topics.
 
