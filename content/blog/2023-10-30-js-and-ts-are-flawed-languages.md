@@ -43,7 +43,7 @@ function urlToString(urlRecord: UrlRecord): string {
 }
 ```
 
-It is somewhat of a subtle change, and it is easy to overlook it during the code review. TypeScript was also okay with this change, because the corresponding JavaScript code will work just fine. The reason being the algorithm that governs [String interpolation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#string_interpolation).
+It is somewhat of a subtle change, and it is easy to overlook it during the code review. TypeScript was also okay with this change because the corresponding JavaScript code would work fine. The reason is the algorithm behind [String interpolation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#string_interpolation).
 
 > Template literals [coerce their expressions directly to strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), while addition coerces its operands to primitives first.
 
@@ -69,7 +69,7 @@ TypeScript will correctly infer the type of `host`, but still won't bother about
 
 Although this example may not look very convincing in isolation, within a larger codebase, mistakes like this may easily slip through unnoticed. It's easy to imagine a scenario when this function is used by other people in your organisation with a false impression that TypeScript will somehow guarantee correctness. This is why, sometimes, you may see weird things such as `http://undefined/api/...` or `Price: $ NaN`.
 
-This example shows that because we rely on a JavaScript's feature here (string interpolation), we need to be mindful of all possible edge cases and write all sort of unit tests, as if we didn't have any type system. In fact, this function is a perfect candidate for TDD.
+This example shows that because we rely on JavaScript's feature here (string interpolation), we need to be mindful of all possible edge cases and write all sorts of unit tests as if we didn't have any Type System. In fact, this function is a perfect candidate for TDD.
 
 We need to always keep in mind that TypeScript is a layer on top of JavaScript, with all its quirks and weirdness. Having a type system should help discover such bugs early.
 
@@ -214,10 +214,10 @@ switch data->Option.flatMap(decodeUrlObj) {
 
 First, `safeParseJSON` function helps us make sure that we received valid JSON. Then we run a decoder as part of the `decodeUrlObj` function. Notice that use pattern matching to handle different branches in the business logic. For example, we may receive a string with invalid JSON, or the JSON may not be an object, etc.
 
-I used here a default, built-in JSON decoding facilities. There are far more expressive and easy-to-use libraries for decoding out there.
+I used here a default, built-in JSON decoding facility. There are far more expressive and easy-to-use libraries for decoding out there.
 
 The `flatMap` operator defined on `option<'t>` helps to chain the computation together without explicit pattern matching. This makes the code compact, yet descriptive.
 
-The only issue I have with the code is that exception handling in the `safeParseJSON` function. If we remove that branch and the compiler won't complain. However, this issue can easily be prevented using ReScript's code analyser tool - it will notify us that the function may throw.
+The only issue I have with the code is that exception handling in the `safeParseJSON` function. If we remove that branch, the compiler won't complain. However, this issue can easily be prevented using ReScript's code analyser tool - it will notify us that the function may throw.
 
-All of this shows how much validation we may miss when writing TypeScript simply because the language does not require any of that. Without all of those checks, we cannot guarantee that our program will not crash. Having types such as `option` instead of `null` or `undefined` being a part of the standard library is just great! However, we can have a similar setup with TypeScript, which we'll explore in a following post. For now, I would highly encourage you to explore ReScript.
+All of this shows how much validation we may miss when writing TypeScript simply because the language does not require any of that. Without these checks, we cannot guarantee that our program will not crash. Having types such as `option` instead of `null` or `undefined` being a part of the standard library is great! However, we can have a similar setup with TypeScript, which we'll explore in the following post. For now, I would highly encourage you to explore ReScript.
