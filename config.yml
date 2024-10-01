@@ -11,8 +11,7 @@ params:
     appendFilePath: true
   homeInfoParams:
     Title: Welcome to my website!
-    Content:
-      My name is Ivan Demchenko. I am a software engineer. I use this space to share observations, insights and ideas related to my professional experience. Feel free to check out my other accounts as well.
+    Content: My name is Ivan Demchenko. I am a software engineer. I use this space to share observations, insights and ideas related to my professional experience. Feel free to check out my other accounts as well.
 
   socialIcons:
     - name: LinkedIn
@@ -48,6 +47,3 @@ menu:
     - name: Bookmarks
       url: /bookmarks/
       weight: 4
-    - name: CV
-      url: /cv/
-      weight: 5
