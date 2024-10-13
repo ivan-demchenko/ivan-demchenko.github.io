@@ -10,8 +10,8 @@ params:
     Text: "Suggest Changes"
     appendFilePath: true
   homeInfoParams:
-    Title: Welcome to my website!
-    Content: My name is Ivan Demchenko. I am a software engineer. I use this space to share observations, insights and ideas related to my professional experience. Feel free to check out my other accounts as well.
+    Title: Welcome!
+    Content: My name is Ivan. I am a software engineer. I use this space to share observations, insights and ideas related to my professional experience. Feel free to check out my other accounts as well.
 
   socialIcons:
     - name: LinkedIn
