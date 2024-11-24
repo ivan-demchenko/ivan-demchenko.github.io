@@ -1,7 +1,7 @@
 ---
 title: "Reflection: interviews are tricky for me"
 date: "2024-02-07"
-draft: true,
+draft: true
 slug: interviews-are-tricky-for-me
 tags:
   - reflection
