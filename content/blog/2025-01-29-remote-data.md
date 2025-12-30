@@ -2,6 +2,8 @@
 title: Remote Data as Data
 date: "2025-01-29"
 slug: remote-data-as-data
+categories:
+  - blog
 tags:
   - TypeScript
 ---

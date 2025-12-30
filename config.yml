@@ -31,6 +31,7 @@ params:
     safari_pinned_tab: "static/icon.png"
 
 taxonomies:
+  category: categories
   tag: tags
 
 menu:
@@ -47,3 +48,6 @@ menu:
     - name: Bookmarks
       url: /bookmarks/
       weight: 4
+    - name: Projects
+      url: /projects/
+      weight: 5

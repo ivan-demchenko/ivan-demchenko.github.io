@@ -1,3 +1,4 @@
+# Source https://gohugo.io/host-and-deploy/host-on-github-pages/
 name: Build and deploy
 on:
   push:
