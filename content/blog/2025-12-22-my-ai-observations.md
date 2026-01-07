@@ -23,7 +23,7 @@ Looming AGI and robotics are set to replace people.
 - Endless debates about whether AI is creative and what it means to be creative.
 - Hype surrounding vibe coding led many to believe that software engineers would no longer be required.
 
-To be honest, I bought into some of the hype as it was gaining momentum. The amount of investment in AI is staggering. Some of these fantasies may eventually become reality. But living through this wave as a practitioner, the gap between promise and reality became increasingly visible, at least in 2025. Unfortunately, I saw people outsourcing engineering to LLMs to meet unrealistic deadlines based on the promises of LLMs.
+To be honest, I bought into some of the hype as it was gaining momentum. The amount of investment in AI is staggering. Some of these predictions may eventually become reality. But living through this wave as a practitioner, the gap between promise and reality became increasingly visible, at least in 2025. Unfortunately, I saw people outsourcing engineering to LLMs to meet unrealistic deadlines based on the promises of LLMs.
 
 ## Unexpected Side Effect: Loneliness
 
@@ -53,7 +53,7 @@ At its core, engineering is about understanding and solving problems, with codin
 
 - They often skip critical dependencies
 - They don’t maintain a durable mental model of architecture
-- In my experience, after 20–30 minutes of real work, some agents tend to derail from the initial implementation plan, especially in the mature systems, and if we try to adjust the plan halfway through
+- In my experience, after about 30 minutes of real work, some agents tend to derail from the initial implementation plan, especially in the mature systems, and if we try to adjust the plan halfway through. However, agent constantly improve in this regard and prompting techniques help to mitigate this issue.
 - They focus on “working code”, immediate gain, not on long-term clarity or complexity reduction - this is still very much up to the LLM user.
 
 As a system (or a component of a system) grows, understanding interactions between components or pieces is critical. At this point, it looks like LLMs struggle here as they are not designed for this. All of this translates into more information to be fed into the model (aside from the system and the user prompt), which occupies the context window quite a bit.
