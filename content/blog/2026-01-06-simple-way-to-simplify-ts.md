@@ -157,7 +157,7 @@ Helps to some extend, but doesn't eliminate the problem:
 
 Still valid and still impossible.
 
-### Make data follows explicit state
+### Make data follow explicit state
 
 Now let’s encode meaning instead of availability:
 
@@ -188,7 +188,7 @@ This is not a Cartesian product. It’s a disjoint union of four sets. Here's wh
 - each state carries only the data that makes sense
 - impossible combinations are unrepresentable
 
-Now TypeScript has the means to guide us as we type/generate code to make sure our program won't end-up in the exceptional state. This is how exceptions ger eliminated. This is clearly visible on the consumer side, which becomes boring (in a good sense):
+Now, TypeScript can guide us as we write/generate code, ensuring that our program does not end up in an exceptional state. This is how exceptions are eliminated. This is clearly visible on the consumer side, where things become straightforward:
 
 ```ts
 function render(req: UserRequest) {
@@ -212,7 +212,7 @@ Therefore, if we forbid `?`, we can force LLMs and humans to provide those varia
 
 ## Departing from hope-driven programming
 
-Correct! This is why TypeScript is not enough, after compilation you'll end up with plain JS anyway. That's why libraries like Zod are important.
+TypeScript alone is not enough, after compilation you'll end up with plain JS anyway. That's why libraries like Zod are important.
 
 Let's encode the same constraints in Zod:
 
@@ -256,7 +256,7 @@ function parseUserRequest(input: unknown): UserRequest {
 }
 ```
 
-You may want to log all the attempts to pass incorrect data here, return "Bad request" to your clients, return an error (no need to throw btw), etc.
+You may want to log all the attempts to pass invalid data here, return "Bad request" to your clients, return an error (no need to throw, btw), etc.
 
 From this point on, your system operates on a closed world:
 
@@ -331,9 +331,9 @@ type UserResponse =
     | { status: "error"; error: string };
 ```
 
-Here we need to cover **exactly three** cases - there's no more. Each state is disjoint. No overlap or ambiguity. You don’t need tests asserting “this never happens” — the type already says it can’t.
+Here we would to cover **exactly three** cases - there's no more. Each state is disjoint, no overlap or ambiguity. You don’t need tests asserting “this never happens” — the type already says it can’t.
 
-E2E tests benefit even more. E2E tests don’t care about internal branches — they care about observable behaviour. With explicit schemas, each test corresponds to a business scenario, not a parsing accident.
+E2E tests benefit even more. These tests don’t care about internal branches — they care about observable behaviour. With explicit schemas, each test corresponds to a business scenario, not a parsing accident.
 
 > You can test every element of a large set, or you can design a smaller set.
 
