@@ -278,6 +278,65 @@ if (data && data.status === "success" && data.data) {
 const req = UserRequestSchema.parse(input);
 ```
 
+## Okay, what about testing?
+
+TypeScript can reduce the amount of testing required. Imagine a simple REST endpoint:
+
+```ts
+POST /users
+
+// Again, a bit contrived, but not unimaginable
+type CreateUserRequest = {
+    name?: string | null
+    age?: number | null
+};
+```
+
+From the type alone, the endpoint accepts 9 distinct shapes. Unit tests become combinatorial:
+
+```ts
+it("accepts missing name");
+it("accepts null name");
+it("accepts valid name");
+
+it("accepts missing age");
+it("accepts null age");
+it("accepts valid age");
+
+it("accepts missing name and age");
+it("accepts null name and age");
+// ...
+```
+
+Fixing the shape collapses the test space:
+
+```ts
+type CreateUserRequest = {
+    name: string | null
+    age: number | null
+};
+
+// The set shrinks from 9 to 3.
+it("creates user with name and age");
+it("creates user with null name");
+it("creates user with null age");
+```
+
+State machines reduce tests even further:
+
+```ts
+type UserResponse =
+    | { status: "loading" }
+    | { status: "success"; data: User }
+    | { status: "error"; error: string };
+```
+
+Here we need to cover **exactly three** cases - there's no more. Each state is disjoint. No overlap or ambiguity. You don’t need tests asserting “this never happens” — the type already says it can’t.
+
+E2E tests benefit even more. E2E tests don’t care about internal branches — they care about observable behaviour. With explicit schemas, each test corresponds to a business scenario, not a parsing accident.
+
+> You can test every element of a large set, or you can design a smaller set.
+
 ## Conclusion
 
 If optional fields are how bugs enter your system, runtime validation is how you stop them at the door.
